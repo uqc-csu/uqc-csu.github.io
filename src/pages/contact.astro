@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionIntro from '../components/SectionIntro.astro';
+---
+
+<BaseLayout title="Contact / 联系">
+  <section class="page-intro">
+    <SectionIntro
+      eyebrow="Contact / 联系"
+      title="Leave a clear way in."
+      titleZh="为交流留出清晰入口。"
+      description="The contact page is ready for the verified school, department, address, and email information supplied by the group."
+    />
+  </section>
+  <section class="section-tight">
+    <div class="page-shell contact-layout">
+      <div class="contact-main">
+        <h2>Start with the right details.<span>从准确的信息开始。</span></h2>
+        <p>Once the group confirms its public contact route, this panel can link directly to an institutional email or official page. No form backend is included in this static prototype.</p>
+        <a class="button button-secondary" href="/">Back to home / 返回首页 <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="contact-side">
+        <h2>Information to add.<span>待补充信息。</span></h2>
+        <div class="contact-lines">
+          <div class="contact-line"><small>Institution / 学校</small><p>School and department · to be confirmed<br />学校与院系 · 待确认</p></div>
+          <div class="contact-line"><small>Address / 地址</small><p>Campus address · to be confirmed<br />校园地址 · 待确认</p></div>
+          <div class="contact-line"><small>Email / 邮箱</small><p>Official group email · to be confirmed<br />课题组官方邮箱 · 待确认</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

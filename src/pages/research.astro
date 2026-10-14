@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionIntro from '../components/SectionIntro.astro';
+import { researchAreas } from '../data/site';
+---
+
+<BaseLayout title="Research / 研究方向">
+  <section class="page-intro">
+    <SectionIntro
+      eyebrow="Research / 研究方向"
+      title="Ideas become directions."
+      titleZh="从问题出发，形成研究方向。"
+      description="A spacious, structured place for the group’s research themes. Every description below is a clearly marked demo field awaiting verified copy."
+    />
+  </section>
+  <section class="section-tight">
+    <div class="page-shell data-list">
+      {researchAreas.map((area) => (
+        <article class="data-card data-card-grid card-border">
+          <div class="data-index">{area.number}<br />/ 03</div>
+          <div>
+            <h2>{area.title.en}<span>{area.title.zh}</span></h2>
+            <p>{area.summary.en}<br />{area.summary.zh}</p>
+          </div>
+          <div class="tag-row">
+            {area.tags.map((tag) => <span class="tag">{tag}</span>)}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+  <section class="section-tight">
+    <div class="page-shell">
+      <div class="notice" role="note">
+        <div aria-hidden="true">✦</div>
+        <div><strong>Content note / 内容说明</strong>研究方向的正式表述、图片与项目链接请在课题组确认后补充。</div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

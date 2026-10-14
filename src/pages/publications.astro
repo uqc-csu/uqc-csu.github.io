@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionIntro from '../components/SectionIntro.astro';
+import { publications } from '../data/site';
+---
+
+<BaseLayout title="Publications / 论文">
+  <section class="page-intro">
+    <SectionIntro
+      eyebrow="Publications / 论文"
+      title="A record that stays precise."
+      titleZh="清晰、可核验的成果记录。"
+      description="Publication cards reserve the fields needed for a durable record: authors, venue, year, status, and DOI."
+    />
+  </section>
+  <section class="section-tight">
+    <div class="page-shell data-list">
+      {publications.map((publication) => (
+        <article class="publication-card card-border">
+          <div class="publication-card-top">
+            <span class="publication-year">{publication.year}</span>
+            <span class="publication-status">{publication.status.en} · {publication.status.zh}</span>
+          </div>
+          <h2 class="publication-title">{publication.title.en}<span>{publication.title.zh}</span></h2>
+          <div class="publication-meta">
+            <span><strong>Authors / 作者</strong> {publication.authors.en} · {publication.authors.zh}</span>
+            <span><strong>Venue / 期刊</strong> {publication.venue.en} · {publication.venue.zh}</span>
+          </div>
+          {publication.doi && <a class="doi" href={`https://doi.org/${publication.doi}`}>DOI: {publication.doi} ↗</a>}
+        </article>
+      ))}
+    </div>
+  </section>
+  <section class="section-tight">
+    <div class="page-shell">
+      <div class="notice" role="note">
+        <div aria-hidden="true">✦</div>
+        <div><strong>Verification first / 先核验再发布</strong>正式论文条目应以作者、期刊、年份与 DOI 的独立核验结果为准。</div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

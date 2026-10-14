@@ -1,0 +1,34 @@
+---
+import { navItems } from '../data/site';
+
+const currentPath = Astro.url.pathname;
+const isActive = (href: string) => href === '/' ? currentPath === '/' : currentPath.startsWith(href);
+---
+
+<header class="site-header">
+  <div class="page-shell header-inner">
+    <a class="brand" href="/" aria-label="UQC Research Group home">
+      <span class="brand-mark">UQ</span>
+      <span>UQC Research Group<small>量子研究课题组 · website prototype</small></span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      {navItems.map((item) => (
+        <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>
+          {item.en}<span class="sr-only"> · {item.zh}</span>
+        </a>
+      ))}
+    </nav>
+
+    <details class="mobile-menu">
+      <summary aria-label="Open navigation"><span></span></summary>
+      <nav class="mobile-nav" aria-label="Mobile navigation">
+        {navItems.map((item) => (
+          <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>
+            {item.en} <span>{item.zh}</span>
+          </a>
+        ))}
+      </nav>
+    </details>
+  </div>
+</header>

@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionIntro from '../components/SectionIntro.astro';
+import { people } from '../data/site';
+---
+
+<BaseLayout title="People / 成员">
+  <section class="page-intro">
+    <SectionIntro
+      eyebrow="People / 成员"
+      title="The people behind the questions."
+      titleZh="一起提出问题的人。"
+      description="A quiet, respectful directory for the group. Public profiles should be added only after each person’s information is confirmed."
+    />
+  </section>
+  <section class="section-tight">
+    <div class="page-shell people-grid">
+      {people.map((person) => (
+        <article class="person-card card-border">
+          <div class="avatar" aria-hidden="true">{person.initials}</div>
+          <h2>{person.name.en}<span>{person.name.zh}</span></h2>
+          <p class="person-role">{person.role.en} · {person.role.zh}</p>
+          <p>{person.bio.en}<br />{person.bio.zh}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+  <section class="section-tight">
+    <div class="page-shell">
+      <div class="notice" role="note">
+        <div aria-hidden="true">✦</div>
+        <div><strong>Privacy by default / 默认保护隐私</strong>本原型不包含真实姓名、照片、邮箱或个人主页链接。</div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

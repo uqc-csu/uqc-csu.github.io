@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionIntro from '../components/SectionIntro.astro';
+import { newsItems } from '../data/site';
+---
+
+<BaseLayout title="News / 动态">
+  <section class="page-intro">
+    <SectionIntro
+      eyebrow="News / 动态"
+      title="Small updates, kept together."
+      titleZh="把每一次进展，留在一起。"
+      description="Use this timeline for seminars, papers, awards, visits, and other verified group updates."
+    />
+  </section>
+  <section class="section-tight">
+    <div class="page-shell news-list">
+      {newsItems.map((item) => (
+        <article class="news-card card-border">
+          <div class="news-card-top">
+            <time class="news-date" datetime={item.date === '—' ? undefined : item.date}>{item.date}</time>
+            <span class="news-type">{item.type.en} · {item.type.zh}</span>
+          </div>
+          <h2 class="news-title">{item.title.en}<span>{item.title.zh}</span></h2>
+          <p>{item.summary.en}<br />{item.summary.zh}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
