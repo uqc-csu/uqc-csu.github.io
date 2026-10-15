@@ -1,6 +1,6 @@
 # UQC Research Group website
 
-This repository contains the static website for `uqc-csu.github.io`, built with Astro and Tailwind CSS.
+This repository contains the static website for [en.uqc-csu.com](https://en.uqc-csu.com/), built with Astro and Tailwind CSS and hosted on GitHub Pages.
 
 ## Local development
 
@@ -26,3 +26,7 @@ The site is prepared for a future bilingual route. Add translated values to the 
 ## Deployment
 
 `.github/workflows/deploy.yml` runs `npm run build` for pull requests and deploys the `main` branch to GitHub Pages with the repository's short-lived `GITHUB_TOKEN`. No personal deployment token is stored in the repository.
+
+The custom domain is configured in the repository's GitHub Pages settings. Cloudflare DNS has a DNS-only CNAME from `en.uqc-csu.com` to `uqc-csu.github.io`; GitHub Pages manages the HTTPS certificate. With this Actions-based publishing source, a `CNAME` file is not required.
+
+The apex domain `uqc-csu.com` and `www.uqc-csu.com` remain separate Cloudflare-proxied entries that redirect to the group's X-MOL homepage.
