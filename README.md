@@ -1,18 +1,18 @@
 # Research group website template
 
-An English-only, unfilled presentation template at [en.uqc-csu.com](https://en.uqc-csu.com/). It uses Astro, Tailwind CSS, and GitHub Pages. The public site contains structural labels and static visual placeholders. No group information, sample people, publications, news, or contact details are populated.
+An English-only research group website template at [en.uqc-csu.com](https://en.uqc-csu.com/). It uses Astro, Tailwind CSS, and GitHub Pages. Publications contain 31 journal articles imported from the local Zotero collection **UQC (Ultrafast Quantum Control) > Published**, with titles, authors, journals, years, and DOI links. Other sections retain structural labels and visual placeholders.
 
 ## Display and management
 
 | Layer | Location | Responsibility |
 | --- | --- | --- |
-| Content management | `management/content/en/` | Editable JSON records, currently empty |
+| Content management | `management/content/en/` | Editable JSON records; publications are populated |
 | Maintenance guide | `management/README.md` | Field descriptions and publishing instructions |
 | Display modules | `src/components/modules/` | Reusable presentation components receiving data through props |
 | Content adapter | `src/lib/content.ts` | Imports and types for management records |
 | Pages | `src/pages/` | Compose the display modules |
 
-Empty records render visual placeholders. To populate the website later, edit the management files. Presentation code does not need group-specific copy.
+Empty records render visual placeholders. Update website content through the management files. Presentation code does not need group-specific copy. Publications are sorted by year, newest first; the homepage shows the two newest entries. The publications page links to `/publications.bib`, generated at build time from the same JSON records for citation import.
 
 ## Local development
 
@@ -26,7 +26,7 @@ npm run build
 npm run preview
 ```
 
-Static production files are generated in `dist/`. The management guide and JSON files are outside `public/`; they are not published as standalone pages or administration endpoints.
+Static production files are generated in `dist/`, including the public BibTeX citation file. The management guide and JSON files are outside `public/`; they are not published as standalone pages or administration endpoints.
 
 ## Publishing
 

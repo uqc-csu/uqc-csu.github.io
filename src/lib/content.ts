@@ -23,7 +23,7 @@ export interface ContactContent { institution: string; department: string; addre
 export const site: SiteContent = siteData;
 export const researchAreas: ResearchArea[] = researchData;
 export const people: Person[] = peopleData;
-export const publications: Publication[] = publicationData;
+export const publications: Publication[] = [...publicationData].sort((a, b) => b.year - a.year);
 export const newsItems: NewsItem[] = newsData;
 export const contact: ContactContent = contactData;
 export const isEmptyTemplate =

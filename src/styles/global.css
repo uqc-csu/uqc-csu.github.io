@@ -880,7 +880,18 @@ summary:focus-visible {
 .person-card .person-role { margin-top: 12px; color: var(--blue); }
 .avatar-placeholder { color: #667699; background: #e9eef8; }
 .avatar-image { object-fit: cover; }
+.publication-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  margin-bottom: 24px;
+}
+.publication-tools p { margin: 0; }
 .publication-authors { margin-top: 20px; color: var(--muted); font-size: 0.82rem; line-height: 1.6; }
+.doi { gap: 6px; }
+.doi span:first-child { min-width: 0; overflow-wrap: anywhere; }
 .doi-placeholder { color: #8996ad; }
 .updates-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
 .updates-grid .section-title { font-size: clamp(1.9rem, 3vw, 2.8rem); }

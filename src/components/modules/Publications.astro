@@ -13,7 +13,7 @@ const Heading = headingLevel === 2 ? 'h2' : 'h3';
       <div class="publication-card-top"><span class="publication-year">{item?.year || 'Year'}</span><span class="publication-status">{item?.journal || 'Journal'}</span></div>
       <Heading class="publication-title">{item?.title || 'Publication title'}</Heading>
       {item?.authors?.length ? <p class="publication-authors">{item.authors.join(', ')}</p> : <Placeholder label="Authors placeholder" lines={1} />}
-      {item?.doi ? <a class="doi" href={`https://doi.org/${item.doi}`}>DOI <span aria-hidden="true">↗</span></a> : <span class="doi doi-placeholder">DOI</span>}
+      {item?.doi ? <a class="doi" href={`https://doi.org/${item.doi}`}><span>DOI: {item.doi}</span> <span aria-hidden="true">↗</span></a> : <span class="doi doi-placeholder">DOI</span>}
     </article>
   ))}
 </div>

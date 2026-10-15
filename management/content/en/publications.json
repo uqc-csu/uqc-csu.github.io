@@ -1,1 +1,415 @@
-[]
+[
+  {
+    "title": "Enhanced charging in open Rabi and Dicke quantum batteries",
+    "authors": [
+      "A-Long Zhou",
+      "Nuo Xu",
+      "Ya-Wen Xiao",
+      "Li-Li Gao",
+      "Long-Jie Li",
+      "Zi-Min Li",
+      "Chuan-Cun Shu"
+    ],
+    "journal": "Physical Review A",
+    "year": 2026,
+    "doi": "10.1103/3tmw-cc5t"
+  },
+  {
+    "title": "Raman-induced vibrational coherence control of bond-selective HOD photodissociation with two UV pulses",
+    "authors": [
+      "Wen-Quan Jing",
+      "Zhao-Peng Sun",
+      "Jian-Qiao Meng",
+      "Song-Feng Zhao",
+      "Chuan-Cun Shu"
+    ],
+    "journal": "The Journal of Chemical Physics",
+    "year": 2026,
+    "doi": "10.1063/5.0349395"
+  },
+  {
+    "title": "Chirped-pulse engineering for robust control of single-molecule orientation in a cavity",
+    "authors": [
+      "Li-Bao Fan",
+      "Yu Guo",
+      "Shan Ma",
+      "Chuan-Cun Shu"
+    ],
+    "journal": "Physical Review A",
+    "year": 2026,
+    "doi": "10.1103/xt3w-w8ly"
+  },
+  {
+    "title": "Selective Bond Breaking of HOD by Nonresonant Infrared Pulse Trains and a Delayed Ultraviolet Pulse",
+    "authors": [
+      "Wen-Quan Jing",
+      "Zhao-Peng Sun",
+      "Song-Feng Zhao",
+      "Chuan-Cun Shu"
+    ],
+    "journal": "The Journal of Physical Chemistry A",
+    "year": 2026,
+    "doi": "10.1021/acs.jpca.6c01498"
+  },
+  {
+    "title": "Topological enhancement of a PT-symmetric Su-Schrieffer-Heeger quantum battery",
+    "authors": [
+      "A-Long Zhou",
+      "Ya-Wen Xiao",
+      "Nuo Xu",
+      "Li-Li Gao",
+      "Long-Jie Li",
+      "Hang Zhou",
+      "Zi-Min Li",
+      "Chuan-Cun Shu"
+    ],
+    "journal": "Physical Review A",
+    "year": 2026,
+    "doi": "10.1103/4klp-kw27"
+  },
+  {
+    "title": "Multilevel pulse-area theorem for precise quantum control of molecular vibration and rotation",
+    "authors": [
+      "Jing Yang",
+      "Qian-Qian Hong",
+      "Shan Ma",
+      "Song-Shan Ma",
+      "Chuan-Cun Shu"
+    ],
+    "journal": "Physical Review A",
+    "year": 2026,
+    "doi": "10.1103/mnxs-hjjn"
+  },
+  {
+    "title": "Robust Control of Enantioselective State Transfer in Chiral Molecules",
+    "authors": [
+      "Qian‐Qian Hong",
+      "Xin‐Jiao Song",
+      "Lei Xu",
+      "Chuan‐Cun Shu"
+    ],
+    "journal": "ChemPhysChem",
+    "year": 2026,
+    "doi": "10.1002/cphc.202500705"
+  },
+  {
+    "title": "Precise quantum control of unidirectional field-free molecular orientation",
+    "authors": [
+      "Qian-Qian Hong",
+      "Zhe-Jun Zhang",
+      "Chuan-Cun Shu",
+      "Jun He",
+      "Daoyi Dong",
+      "Dajun Ding"
+    ],
+    "journal": "Physical Review A",
+    "year": 2026,
+    "doi": "10.1103/4hsj-z8qx"
+  },
+  {
+    "title": "Spectral phase control of an ultrashort pulse for exploring the Autler-Townes effect in hydrogen atomic ionization through a resonant state",
+    "authors": [
+      "An Yang",
+      "Wen-Quan Jing",
+      "Bing-Shuang Zhang",
+      "Li-Bao Fan",
+      "Lijuan Jia",
+      "Chuan-Cun Shu"
+    ],
+    "journal": "Physical Review A",
+    "year": 2025,
+    "doi": "10.1103/7fw3-pvpx"
+  },
+  {
+    "title": "Field-induced quantum interference of inelastic scattering in ultracold atomic collisions",
+    "authors": [
+      "Ting Xie",
+      "Chuan-Cun Shu"
+    ],
+    "journal": "Physical Review A",
+    "year": 2025,
+    "doi": "10.1103/q274-8kkw"
+  },
+  {
+    "title": "All-optical Raman control of ultracold atomic hyperfine states using the pulsed jump protocol",
+    "authors": [
+      "Xin-Xia Jian",
+      "Zhi-Jian Zheng",
+      "Jun-Jie Jiang",
+      "Lin Zhou",
+      "Chuan-Cun Shu",
+      "Jun He"
+    ],
+    "journal": "Physical Review A",
+    "year": 2025,
+    "doi": "10.1103/j86x-bpp5"
+  },
+  {
+    "title": "Maximizing orientation of a three-state molecule in a cavity with analytically designed pulses",
+    "authors": [
+      "Li-Bao Fan",
+      "Hai-Ji Li",
+      "Qi Chen",
+      "Hang Zhou",
+      "Heng Liu",
+      "Chuan-Cun Shu"
+    ],
+    "journal": "Physical Review A",
+    "year": 2025,
+    "doi": "10.1103/physreva.111.033119"
+  },
+  {
+    "title": "Precise quantum control of molecular rotation toward a desired orientation",
+    "authors": [
+      "Qian-Qian Hong",
+      "Daoyi Dong",
+      "Niels E. Henriksen",
+      "Franco Nori",
+      "Jun He",
+      "Chuan-Cun Shu"
+    ],
+    "journal": "Physical Review Research",
+    "year": 2025,
+    "doi": "10.1103/PhysRevResearch.7.L012049"
+  },
+  {
+    "title": "Exploring intrinsic magnetic topological insulators: The case of EuIn2As2",
+    "authors": [
+      "Hao Liu",
+      "Qi-Yi Wu",
+      "Chen Zhang",
+      "Jie Pang",
+      "Bo Chen",
+      "Jiao-Jiao Song",
+      "Yu-Xia Duan",
+      "Ya-Hua Yuan",
+      "Hai-Yun Liu",
+      "Chuan-Cun Shu",
+      "Yuan-Feng Xu",
+      "You-Guo Shi",
+      "Jian-Qiao Meng"
+    ],
+    "journal": "Physical Review B",
+    "year": 2024,
+    "doi": "10.1103/physrevb.110.195104"
+  },
+  {
+    "title": "Exploring photon blockade in a two-photon Jaynes-Cummings model with atom and cavity drivings",
+    "authors": [
+      "Hai-Ji Li",
+      "Li-Bao Fan",
+      "Shan Ma",
+      "Jie-Qiao Liao",
+      "Chuan-Cun Shu"
+    ],
+    "journal": "Physical Review A",
+    "year": 2024,
+    "doi": "10.1103/physreva.110.043707"
+  },
+  {
+    "title": "Multiorder rotational Raman transitions in molecular alignment and orientation",
+    "authors": [
+      "Shuwu Xu",
+      "Zhenzhong Lian",
+      "Qian-Qian Hong",
+      "Lingxiao Wang",
+      "Huajie Chen",
+      "Yunxia Huang",
+      "Chuan-Cun Shu"
+    ],
+    "journal": "Physical Review A",
+    "year": 2024,
+    "doi": "10.1103/physreva.110.023116"
+  },
+  {
+    "title": "Unveiling Ultrafast-Weak-Field Coherent Control of Indirect Dissociation Reactions",
+    "authors": [
+      "Yong Liu",
+      "Jian-Qiao Meng",
+      "Zhigang Sun",
+      "Chuan-Cun Shu"
+    ],
+    "journal": "The Journal of Physical Chemistry Letters",
+    "year": 2024,
+    "doi": "10.1021/acs.jpclett.4c01901"
+  },
+  {
+    "title": "Anisotropic Rabi model with two-photon relaxation",
+    "authors": [
+      "Hui Li",
+      "Jia-Kai Shi",
+      "Li-Bao Fan",
+      "Zi-Min Li",
+      "Chuan-Cun Shu"
+    ],
+    "journal": "Physical Review A",
+    "year": 2024,
+    "doi": "10.1103/physreva.110.023708"
+  },
+  {
+    "title": "Enhancing sideband cooling by initial photon-phonon correlation",
+    "authors": [
+      "Wei Niu",
+      "Wen-Quan Yang",
+      "Yong-Hong Ma",
+      "Chuan-Cun Shu",
+      "Wen-Zhao Zhang"
+    ],
+    "journal": "Physica Scripta",
+    "year": 2024,
+    "doi": "10.1088/1402-4896/ad6488"
+  },
+  {
+    "title": "Unveiling Coherent Control of Halomethane Dissociation Induced by a Single Strong Ultraviolet Pulse",
+    "authors": [
+      "Wen-Quan Jing",
+      "Zhao-Peng Sun",
+      "Song-Feng Zhao",
+      "Chuan-Cun Shu"
+    ],
+    "journal": "The Journal of Physical Chemistry Letters",
+    "year": 2023,
+    "doi": "10.1021/acs.jpclett.3c03143"
+  },
+  {
+    "title": "Visualizing molecular unidirectional rotation by a rotated weak-field polarization technique",
+    "authors": [
+      "Zhenzhong Lian",
+      "Zhou Chen",
+      "Juan Li",
+      "Chuan-Cun Shu",
+      "Zhan Hu"
+    ],
+    "journal": "Physical Review A",
+    "year": 2023,
+    "doi": "10.1103/physreva.108.063108"
+  },
+  {
+    "title": "Pulse-area theorem for precision control of the rotational motions of a single molecule in a cavity",
+    "authors": [
+      "Li-Bao Fan",
+      "Chuan-Cun Shu"
+    ],
+    "journal": "Journal of Physics A: Mathematical and Theoretical",
+    "year": 2023,
+    "doi": "10.1088/1751-8121/acee32"
+  },
+  {
+    "title": "Visualizing vibrationally resolved attosecond time delay in resonance-enhanced multiphoton ionization of NO molecules",
+    "authors": [
+      "Xing Li",
+      "Yong Liu",
+      "Dongdong Zhang",
+      "Lanhai He",
+      "Sizuo Luo",
+      "Chuan-Cun Shu",
+      "Dajun Ding"
+    ],
+    "journal": "Physical Review A",
+    "year": 2023,
+    "doi": "10.1103/physreva.108.023114"
+  },
+  {
+    "title": "Quantum Speed Limit under Brachistochrone Evolution",
+    "authors": [
+      "Fu-Quan Dou",
+      "Min-Peng Han",
+      "Chuan-Cun Shu"
+    ],
+    "journal": "Physical Review Applied",
+    "year": 2023,
+    "doi": "10.1103/physrevapplied.20.014031"
+  },
+  {
+    "title": "Quantum Coherent Control of a Single Molecular-Polariton Rotation",
+    "authors": [
+      "Li-Bao Fan",
+      "Chuan-Cun Shu",
+      "Daoyi Dong",
+      "Jun He",
+      "Niels E. Henriksen",
+      "Franco Nori"
+    ],
+    "journal": "Physical Review Letters",
+    "year": 2023,
+    "doi": "10.1103/PhysRevLett.130.043604"
+  },
+  {
+    "title": "Visualizing ultrafast weak-field-induced rotational revivals of air molecules at room temperature",
+    "authors": [
+      "Zhenzhong Lian",
+      "Sizuo Luo",
+      "Hongxia Qi",
+      "Zhou Chen",
+      "Chuan-Cun Shu",
+      "Zhan Hu"
+    ],
+    "journal": "Optics Letters",
+    "year": 2023,
+    "doi": "10.1364/ol.480833"
+  },
+  {
+    "title": "Quantum control of field-free molecular orientation",
+    "authors": [
+      "Qian-Qian Hong",
+      "Zhen-Zhong Lian",
+      "Chuan-Cun Shu",
+      "Niels E. Henriksen"
+    ],
+    "journal": "Physical Chemistry Chemical Physics",
+    "year": 2023,
+    "doi": "10.1039/d3cp03115b"
+  },
+  {
+    "title": "Geometrical Parameter Effect on Plasmonic Scattering of Bimetallic Three-Layered Nanoshells",
+    "authors": [
+      "Ji-Bao Hu",
+      "Yu-Lin Chen",
+      "Juan Li",
+      "Ye-Wan Ma",
+      "Chuan-Cun Shu"
+    ],
+    "journal": "Nanomaterials",
+    "year": 2022,
+    "doi": "10.3390/nano12213816"
+  },
+  {
+    "title": "Cyclic three-level-pulse-area theorem for enantioselective state transfer of chiral molecules",
+    "authors": [
+      "Yu Guo",
+      "Xun Gong",
+      "Songshan Ma",
+      "Chuan-Cun Shu"
+    ],
+    "journal": "Physical Review A",
+    "year": 2022,
+    "doi": "10.1103/physreva.105.013102"
+  },
+  {
+    "title": "Discrimination of enantiomers for chiral molecules using analytically designed microwave pulses",
+    "authors": [
+      "Xun Gong",
+      "Yu Guo",
+      "Chengzhi Wang",
+      "Xiaobing Luo",
+      "Chuan-Cun Shu"
+    ],
+    "journal": "Physical Chemistry Chemical Physics",
+    "year": 2022,
+    "doi": "10.1039/d2cp02776c"
+  },
+  {
+    "title": "Stimulated Raman adiabatic passage in molecular electronic states",
+    "authors": [
+      "Chuan-Cun Shu",
+      "Jie Yu",
+      "Kai-Jun Yuan",
+      "Wen-Hui Hu",
+      "Jing Yang",
+      "Shu-Lin Cong"
+    ],
+    "journal": "Physical Review A",
+    "year": 2009,
+    "doi": "10.1103/PhysRevA.79.023418"
+  }
+]

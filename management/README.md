@@ -1,6 +1,6 @@
 # 内容维护
 
-英文站的展示模块和内容管理文件分开存放。当前所有实际内容均为空，网页只显示英文栏目名称、字段占位和静态版式。此目录不会作为网站管理后台发布。
+英文站的展示模块和内容管理文件分开存放。论文栏目已填入真实文献，其余栏目保留英文占位版式。此目录不会作为网站管理后台发布。
 
 ## 修改位置
 
@@ -18,6 +18,14 @@
 `tags` 和 `authors` 是字符串数组；`year` 是数字；`date` 使用 `YYYY-MM-DD`；`doi` 填写 DOI 标识符。图片放入项目的 `public/images/`，内容文件使用 `/images/文件名`，同时填写图片说明。
 
 保留空字符串或空数组即可继续显示占位版式。不要用虚构的姓名、论文、日期或联系方式填充模板，后续公开内容使用英文。
+
+## 论文来源与引用下载
+
+2026-10-15 从本机 Zotero 的 **UQC (Ultrafast Quantum Control) > Published** 分类导入 31 篇期刊论文，并逐一用 [Crossref DOI 元数据](https://www.crossref.org/documentation/retrieve-metadata/rest-api)核对题目、作者顺序、DOI 和年份。同分类中的 1 条预印本未归入已发表期刊论文。
+
+论文只需维护 `content/en/publications.json`。条目按年份倒序显示，同年条目沿用 JSON 中的顺序；本次同年条目已按 Zotero 中的发表日期倒序排列。首页显示前两篇，完整列表位于 `/publications/`。
+
+`src/pages/publications.bib.ts` 在构建时从同一份数据生成公开的 `/publications.bib`，页面提供 **Download BibTeX** 链接，可导入 Zotero 等文献管理软件。无需单独维护第二份引用文件，也不依赖访问者连接 Zotero 或 Crossref。当前只发布书目信息和 DOI 链接。
 
 ## 展示模块
 

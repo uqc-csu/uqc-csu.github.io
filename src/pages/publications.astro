@@ -7,5 +7,15 @@ import { publications } from '../lib/content';
 
 <BaseLayout title="Publications">
   <section class="page-intro"><SectionIntro title="Publications" /></section>
-  <section class="section-tight"><div class="page-shell"><Publications items={publications} /></div></section>
+  <section class="section-tight">
+    <div class="page-shell">
+      {publications.length > 0 && (
+        <div class="publication-tools">
+          <p class="muted-copy">{publications.length} journal articles</p>
+          <a class="section-link" href="/publications.bib" download="uqc-publications.bib">Download BibTeX</a>
+        </div>
+      )}
+      <Publications items={publications} />
+    </div>
+  </section>
 </BaseLayout>
