@@ -1,0 +1,24 @@
+---
+import type { ContactContent } from '../../lib/content';
+import Placeholder from '../ui/Placeholder.astro';
+interface Props { content: ContactContent }
+const { content } = Astro.props;
+---
+
+<div class="contact-layout">
+  <section class="contact-main">
+    <h2>Contact</h2>
+    <div class="contact-fields">
+      <div><span class="field-label">Email</span>{content.email ? <a class="contact-value" href={`mailto:${content.email}`}>{content.email}</a> : <Placeholder label="Email placeholder" lines={1} />}</div>
+      <div><span class="field-label">Website</span>{content.website ? <a class="contact-value" href={content.website}>{content.website}</a> : <Placeholder label="Website placeholder" lines={1} />}</div>
+    </div>
+  </section>
+  <section class="contact-side">
+    <h2>Institution</h2>
+    <div class="contact-fields">
+      <div><span class="field-label">Institution</span>{content.institution ? <p>{content.institution}</p> : <Placeholder label="Institution placeholder" lines={1} />}</div>
+      <div><span class="field-label">Department</span>{content.department ? <p>{content.department}</p> : <Placeholder label="Department placeholder" lines={1} />}</div>
+      <div><span class="field-label">Address</span>{content.address ? <p>{content.address}</p> : <Placeholder label="Address placeholder" lines={2} />}</div>
+    </div>
+  </section>
+</div>

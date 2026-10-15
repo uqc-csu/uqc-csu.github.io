@@ -1,0 +1,21 @@
+---
+import type { NewsItem } from '../../lib/content';
+import Placeholder from '../ui/Placeholder.astro';
+interface Props { items: NewsItem[]; headingLevel?: 2 | 3 }
+const { items, headingLevel = 2 } = Astro.props;
+const entries: (NewsItem | null)[] = items.length ? items : [null, null];
+const Heading = headingLevel === 2 ? 'h2' : 'h3';
+---
+
+<div class="news-list">
+  {entries.map((item) => (
+    <article class="news-card card-border">
+      <div class="news-card-top">
+        {item?.date ? <time class="news-date" datetime={item.date}>{item.date}</time> : <span class="news-date">Date</span>}
+        <span class="news-type">{item?.category || 'Category'}</span>
+      </div>
+      <Heading class="news-title">{item?.url ? <a href={item.url}>{item.title}</a> : item?.title || 'News title'}</Heading>
+      {item?.summary ? <p>{item.summary}</p> : <Placeholder label="News summary placeholder" />}
+    </article>
+  ))}
+</div>

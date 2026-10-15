@@ -1,0 +1,19 @@
+---
+import type { Publication } from '../../lib/content';
+import Placeholder from '../ui/Placeholder.astro';
+interface Props { items: Publication[]; headingLevel?: 2 | 3 }
+const { items, headingLevel = 2 } = Astro.props;
+const entries: (Publication | null)[] = items.length ? items : [null, null];
+const Heading = headingLevel === 2 ? 'h2' : 'h3';
+---
+
+<div class="data-list">
+  {entries.map((item) => (
+    <article class="publication-card card-border">
+      <div class="publication-card-top"><span class="publication-year">{item?.year || 'Year'}</span><span class="publication-status">{item?.journal || 'Journal'}</span></div>
+      <Heading class="publication-title">{item?.title || 'Publication title'}</Heading>
+      {item?.authors?.length ? <p class="publication-authors">{item.authors.join(', ')}</p> : <Placeholder label="Authors placeholder" lines={1} />}
+      {item?.doi ? <a class="doi" href={`https://doi.org/${item.doi}`}>DOI <span aria-hidden="true">↗</span></a> : <span class="doi doi-placeholder">DOI</span>}
+    </article>
+  ))}
+</div>

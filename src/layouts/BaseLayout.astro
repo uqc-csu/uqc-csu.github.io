@@ -1,6 +1,7 @@
 ---
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteHeader from '../components/SiteHeader.astro';
+import { site } from '../lib/content';
 import '../styles/global.css';
 
 interface Props {
@@ -8,17 +9,19 @@ interface Props {
   description?: string;
 }
 
-const { title, description = 'UQC Research Group · Official website prototype' } = Astro.props;
+const { title, description = site.description || 'Research group website template.' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site || Astro.url.origin);
 ---
 
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title} · UQC Research Group</title>
+    <link rel="canonical" href={canonical} />
+    <title>{title} · {site.name || 'Research group template'}</title>
   </head>
   <body>
     <SiteHeader />

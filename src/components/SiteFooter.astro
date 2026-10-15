@@ -1,6 +1,10 @@
+---
+import { site, isEmptyTemplate } from '../lib/content';
+---
+
 <footer class="site-footer">
   <div class="page-shell footer-inner">
-    <p>© 2026 UQC Research Group · website prototype</p>
-    <p>Static, bilingual-ready, and maintained through GitHub.</p>
+    <p>{site.copyright || site.name || 'Group name'}</p>
+    {isEmptyTemplate && <p>Template preview</p>}
   </div>
 </footer>

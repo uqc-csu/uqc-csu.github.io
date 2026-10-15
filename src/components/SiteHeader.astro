@@ -1,5 +1,6 @@
 ---
-import { navItems } from '../data/site';
+import { navItems } from '../lib/navigation';
+import { site, isEmptyTemplate } from '../lib/content';
 
 const currentPath = Astro.url.pathname;
 const isActive = (href: string) => href === '/' ? currentPath === '/' : currentPath.startsWith(href);
@@ -7,15 +8,15 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
 
 <header class="site-header">
   <div class="page-shell header-inner">
-    <a class="brand" href="/" aria-label="UQC Research Group home">
-      <span class="brand-mark">UQ</span>
-      <span>UQC Research Group<small>量子研究课题组 · website prototype</small></span>
+    <a class="brand" href="/" aria-label="Home">
+      <span class="brand-mark" aria-hidden="true"><span class="brand-symbol"></span></span>
+      <span>{site.name || 'Group name'}<small>{isEmptyTemplate ? 'Template preview' : site.tagline}</small></span>
     </a>
 
     <nav class="desktop-nav" aria-label="Primary navigation">
       {navItems.map((item) => (
         <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>
-          {item.en}<span class="sr-only"> · {item.zh}</span>
+          {item.label}
         </a>
       ))}
     </nav>
@@ -25,7 +26,7 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
       <nav class="mobile-nav" aria-label="Mobile navigation">
         {navItems.map((item) => (
           <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>
-            {item.en} <span>{item.zh}</span>
+            {item.label}
           </a>
         ))}
       </nav>

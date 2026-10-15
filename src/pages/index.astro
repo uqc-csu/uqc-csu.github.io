@@ -1,77 +1,36 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { researchAreas, siteMeta } from '../data/site';
-
-const title = 'UQC Research Group';
+import ModuleSection from '../components/ModuleSection.astro';
+import Hero from '../components/modules/Hero.astro';
+import Research from '../components/modules/Research.astro';
+import People from '../components/modules/People.astro';
+import Publications from '../components/modules/Publications.astro';
+import News from '../components/modules/News.astro';
+import Contact from '../components/modules/Contact.astro';
+import { site, researchAreas, people, publications, newsItems, contact } from '../lib/content';
 ---
 
-<BaseLayout title="Home / 首页" description={siteMeta.description}>
-  <section class="hero">
-    <div class="page-shell hero-grid">
-      <div>
-        <div class="eyebrow">Research group / 课题组</div>
-        <h1>Questions<br />with precision.<span>用精确的方法，探索值得回答的问题。</span></h1>
-        <p class="hero-copy">UQC Research Group is a calm, structured home for research, people, publications, and the questions that connect them. This first release is a reviewable website prototype.</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="/research/">Explore research <span aria-hidden="true">↗</span></a>
-          <a class="button button-secondary" href="/contact/">Contact / 联系</a>
-        </div>
-      </div>
-      <aside class="hero-aside" aria-label="Prototype note">
-        <div class="aside-kicker">UQC · 01 / 06</div>
-        <h2>A clear public starting point.</h2>
-        <p>Minimal JavaScript, local-first assets, and structured content prepared for future maintenance.</p>
-      </aside>
-    </div>
-  </section>
-
-  <section class="section-tight">
-    <div class="page-shell">
-      <div class="notice" role="note">
-        <div aria-hidden="true">✦</div>
-        <div><strong>{siteMeta.notice.en}</strong>{siteMeta.notice.zh}</div>
-      </div>
-    </div>
-  </section>
-
+<BaseLayout title="Home">
+  <Hero content={site} />
+  <ModuleSection title="Research" href="/research/" linkLabel="View research">
+    <Research items={researchAreas.slice(0, 3)} headingLevel={3} />
+  </ModuleSection>
+  <ModuleSection title="People" href="/people/" linkLabel="View people">
+    <People items={people.slice(0, 3)} headingLevel={3} />
+  </ModuleSection>
   <section class="section">
-    <div class="page-shell">
-      <div class="section-head">
-        <div>
-          <div class="eyebrow">What we study / 研究内容</div>
-          <h2 class="section-title">Three spaces for<br />focused inquiry.<span>三个面向深入探索的研究空间。</span></h2>
-        </div>
-        <div>
-          <p class="muted-copy">The cards below are structured demo fields. Replace them with approved research directions when the group’s public wording is ready.</p>
-          <a class="section-link" href="/research/">View all research / 全部研究方向</a>
-        </div>
-      </div>
-      <div class="research-grid">
-        {researchAreas.map((area) => (
-          <article class="research-card card-border">
-            <span class="research-number">{area.number}</span>
-            <h3>{area.title.en}<span>{area.title.zh}</span></h3>
-            <p>{area.summary.en}</p>
-            <div class="tag-row">
-              {area.tags.map((tag) => <span class="tag">{tag}</span>)}
-            </div>
-          </article>
-        ))}
-      </div>
+    <div class="page-shell updates-grid">
+      <section>
+        <div class="section-head"><h2 class="section-title">Publications</h2><a class="section-link" href="/publications/">View all</a></div>
+        <Publications items={publications.slice(0, 2)} headingLevel={3} />
+      </section>
+      <section>
+        <div class="section-head"><h2 class="section-title">News</h2><a class="section-link" href="/news/">View all</a></div>
+        <News items={newsItems.slice(0, 2)} headingLevel={3} />
+      </section>
     </div>
   </section>
-
-  <section class="section-tight">
-    <div class="page-shell split-band">
-      <div class="quote-panel">
-        <p>“A good research website leaves room for the work to speak.”</p>
-        <small>对研究保持克制，也为新的问题留出空间。</small>
-      </div>
-      <div class="detail-panel">
-        <h3>Built to stay easy to maintain.</h3>
-        <p>People, papers, and news live in one structured data file for the prototype. Astro generates static pages at build time, keeping the visitor experience quick and the maintenance path clear.</p>
-        <a class="button button-secondary" href="/people/">Meet the group / 了解成员 <span aria-hidden="true">↗</span></a>
-      </div>
-    </div>
-  </section>
+  <ModuleSection title="Contact" href="/contact/" linkLabel="View contact">
+    <Contact content={contact} />
+  </ModuleSection>
 </BaseLayout>

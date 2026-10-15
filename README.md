@@ -1,32 +1,39 @@
-# UQC Research Group website
+# Research group website template
 
-This repository contains the static website for [en.uqc-csu.com](https://en.uqc-csu.com/), built with Astro and Tailwind CSS and hosted on GitHub Pages.
+An English-only, unfilled presentation template at [en.uqc-csu.com](https://en.uqc-csu.com/). It uses Astro, Tailwind CSS, and GitHub Pages. The public site contains structural labels and static visual placeholders. No group information, sample people, publications, news, or contact details are populated.
+
+## Display and management
+
+| Layer | Location | Responsibility |
+| --- | --- | --- |
+| Content management | `management/content/en/` | Editable JSON records, currently empty |
+| Maintenance guide | `management/README.md` | Field descriptions and publishing instructions |
+| Display modules | `src/components/modules/` | Reusable presentation components receiving data through props |
+| Content adapter | `src/lib/content.ts` | Imports and types for management records |
+| Pages | `src/pages/` | Compose the display modules |
+
+Empty records render visual placeholders. To populate the website later, edit the management files. Presentation code does not need group-specific copy.
 
 ## Local development
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
-Create a production build with:
-
 ```bash
 npm run build
+npm run preview
 ```
 
-The generated static files are written to `dist/`.
+Static production files are generated in `dist/`. The management guide and JSON files are outside `public/`; they are not published as standalone pages or administration endpoints.
 
-## Content maintenance
+## Publishing
 
-Demo content is kept in `src/data/site.ts` so that names, publications, news, and contact details can be replaced from one place. The current copy is intentionally marked as placeholder content and does not represent verified group members, publications, or contact information.
+There is no scheduled build. The workflow builds only when website source or content changes in a pull request or a push to `main`, or when explicitly run through Actions > Build and deploy Astro site > Run workflow. Documentation-only changes do not trigger a build.
 
-The site is prepared for a future bilingual route. Add translated values to the structured data first, then introduce `/zh/` or `/en/` routes when the group approves the information architecture.
+Pull requests run a build check. Pushes to `main` and manual runs on `main` publish to Pages. Deployment uses the short-lived `GITHUB_TOKEN`; no personal deployment token is configured. Uploaded deployment artifacts are retained for one day.
 
-## Deployment
+The custom domain is configured in GitHub Pages settings. Cloudflare has a DNS-only CNAME from `en.uqc-csu.com` to `uqc-csu.github.io`; GitHub Pages manages and enforces HTTPS. This Actions-based site does not require a `CNAME` file.
 
-`.github/workflows/deploy.yml` runs `npm run build` for pull requests and deploys the `main` branch to GitHub Pages with the repository's short-lived `GITHUB_TOKEN`. No personal deployment token is stored in the repository.
-
-The custom domain is configured in the repository's GitHub Pages settings. Cloudflare DNS has a DNS-only CNAME from `en.uqc-csu.com` to `uqc-csu.github.io`; GitHub Pages manages the HTTPS certificate. With this Actions-based publishing source, a `CNAME` file is not required.
-
-The apex domain `uqc-csu.com` and `www.uqc-csu.com` remain separate Cloudflare-proxied entries that redirect to the group's X-MOL homepage.
+The apex domain `uqc-csu.com` and `www.uqc-csu.com` continue to redirect to the X-MOL homepage through separate Cloudflare rules.

@@ -1,16 +1,15 @@
 ---
+import Placeholder from './ui/Placeholder.astro';
+
 interface Props {
-  eyebrow: string;
   title: string;
-  titleZh: string;
-  description?: string;
 }
 
-const { eyebrow, title, titleZh, description } = Astro.props;
+const { title } = Astro.props;
 ---
 
 <div class="page-shell">
-  <div class="eyebrow">{eyebrow}</div>
-  <h1 class="section-title">{title}<span>{titleZh}</span></h1>
-  {description && <p class="muted-copy">{description}</p>}
+  <div class="eyebrow">Research group</div>
+  <h1 class="section-title">{title}</h1>
+  <div class="intro-placeholder"><Placeholder label={`${title} introduction placeholder`} lines={2} /></div>
 </div>
