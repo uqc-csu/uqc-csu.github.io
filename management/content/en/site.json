@@ -1,9 +1,9 @@
 {
-  "name": "",
-  "tagline": "",
-  "description": "",
-  "introduction": "",
+  "name": "UQC",
+  "tagline": "Ultrafast Quantum Control Group",
+  "description": "UQC at Central South University: theoretical research in ultrafast atomic and molecular dynamics, quantum control, and quantum system identification.",
+  "introduction": "Based at the School of Physics, Central South University in Changsha, China, we study how light fields control atoms and molecules. Our theoretical work connects ultrafast physics, quantum optics, and control theory to understand microscopic dynamics, design precise control fields, and identify quantum systems from measurements.",
   "image": "",
   "imageAlt": "",
-  "copyright": ""
+  "copyright": "Ultrafast Quantum Control Group · Central South University"
 }

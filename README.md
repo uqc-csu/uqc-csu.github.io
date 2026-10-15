@@ -1,13 +1,14 @@
 # Research group website template
 
-An English-only research group website template at [en.uqc-csu.com](https://en.uqc-csu.com/). It uses Astro, Tailwind CSS, and GitHub Pages. Publications contain 31 journal articles imported from the local Zotero collection **UQC (Ultrafast Quantum Control) > Published**, with titles, authors, journals, years, and DOI links. Other sections retain structural labels and visual placeholders.
+An English-only website for the **Ultrafast Quantum Control Group (UQC), School of Physics, Central South University**, at [en.uqc-csu.com](https://en.uqc-csu.com/). It uses Astro, Tailwind CSS, and GitHub Pages. The group overview, three research areas, two research news items, and institutional information are adapted from the public UQC X-MOL pages. Publications contain 31 journal articles imported from the local Zotero collection **UQC (Ultrafast Quantum Control) > Published**, with titles, authors, journals, years, and DOI links. Member profiles, personal contact details, and group images remain unfilled.
 
 ## Display and management
 
 | Layer | Location | Responsibility |
 | --- | --- | --- |
-| Content management | `management/content/en/` | Editable JSON records; publications are populated |
+| Content management | `management/content/en/` | Editable JSON records for public group content |
 | Maintenance guide | `management/README.md` | Field descriptions and publishing instructions |
+| Source notes | `management/sources.md` | Public sources and the scope of adapted content |
 | Display modules | `src/components/modules/` | Reusable presentation components receiving data through props |
 | Content adapter | `src/lib/content.ts` | Imports and types for management records |
 | Pages | `src/pages/` | Compose the display modules |

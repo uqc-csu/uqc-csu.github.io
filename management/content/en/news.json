@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "title": "Multilevel pulse-area control in Physical Review A",
+    "date": "2026-03-27",
+    "category": "Research",
+    "summary": "A multilevel pulse-area framework uses infrared and delayed terahertz pulses to control molecular vibration and rotation. The study appears in Physical Review A.",
+    "url": "https://www.x-mol.com/groups/uqc/news/112721"
+  },
+  {
+    "title": "Robust enantioselective state transfer in ChemPhysChem",
+    "date": "2026-03-27",
+    "category": "Research",
+    "summary": "A coherent microwave control scheme uses composite pulses to make enantioselective state transfer more robust against pulse-area errors. The study appears in ChemPhysChem.",
+    "url": "https://www.x-mol.com/groups/uqc/news/112727"
+  }
+]

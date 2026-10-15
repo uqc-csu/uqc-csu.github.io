@@ -1,1 +1,29 @@
-[]
+[
+  {
+    "title": "Ultrafast strong-field physics",
+    "summary": "Exploring electron and nuclear dynamics in atoms and molecules on attosecond and femtosecond timescales. Topics include field-free molecular orientation, strong-field ionization and dissociation, intramolecular charge migration, and high-harmonic generation.",
+    "tags": [
+      "Ultrafast dynamics",
+      "Atoms and molecules",
+      "Light–matter interactions"
+    ]
+  },
+  {
+    "title": "Quantum control theory",
+    "summary": "Designing light fields for precise quantum manipulation under practical limits on bandwidth, pulse energy, and optical configurations. We develop theoretical and numerical methods for quantum-state preparation and control in the presence of environmental decoherence.",
+    "tags": [
+      "Pulse design",
+      "Coherent control",
+      "Quantum states"
+    ]
+  },
+  {
+    "title": "Quantum system identification",
+    "summary": "Reconstructing quantum dynamics and physical parameters from limited, noisy measurements. Our approach combines physics-based models with machine learning to study ultrafast molecular processes and infer system evolution in complex environments.",
+    "tags": [
+      "Inverse problems",
+      "Physics-informed learning",
+      "Quantum dynamics"
+    ]
+  }
+]
