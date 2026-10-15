@@ -470,7 +470,7 @@ summary:focus-visible {
 }
 
 .research-card h3 span,
-.person-card h3 span,
+.person-card h2 span,
 .publication-title span,
 .news-title span {
   display: block;
@@ -594,7 +594,7 @@ summary:focus-visible {
   letter-spacing: 0.1em;
 }
 
-.data-card h3 {
+.data-card h2 {
   margin: 0;
   font-size: 1.3rem;
   font-weight: 650;
@@ -602,7 +602,7 @@ summary:focus-visible {
   line-height: 1.15;
 }
 
-.data-card h3 span {
+.data-card h2 span {
   display: block;
   margin-top: 7px;
   color: var(--muted);
@@ -644,7 +644,7 @@ summary:focus-visible {
   letter-spacing: 0.08em;
 }
 
-.person-card h3 {
+.person-card h2 {
   margin: 28px 0 9px;
   font-size: 1.04rem;
   font-weight: 680;
