@@ -2,10 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionIntro from '../components/SectionIntro.astro';
 import People from '../components/modules/People.astro';
-import { people } from '../lib/content';
+import { people, pageContent } from '../lib/content';
 ---
 
-<BaseLayout title="People">
-  <section class="page-intro"><SectionIntro title="People" /></section>
-  <section class="section-tight"><div class="page-shell"><People items={people} /></div></section>
+<BaseLayout title={pageContent.people.title}>
+  <section class="page-intro"><SectionIntro {...pageContent.people} /></section>
+  <section class="page-content"><div class="page-shell reading-width"><People items={people} /></div></section>
 </BaseLayout>

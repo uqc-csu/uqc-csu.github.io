@@ -6,14 +6,16 @@ An English-only website for the **Ultrafast Quantum Control Group (UQC), School 
 
 | Layer | Location | Responsibility |
 | --- | --- | --- |
-| Content management | `management/content/en/` | Editable JSON records for public group content |
+| Content management | `management/content/en/` | Editable JSON records for public group content and page introductions |
 | Maintenance guide | `management/README.md` | Field descriptions and publishing instructions |
 | Source notes | `management/sources.md` | Public sources and the scope of adapted content |
 | Display modules | `src/components/modules/` | Reusable presentation components receiving data through props |
 | Content adapter | `src/lib/content.ts` | Imports and types for management records |
 | Pages | `src/pages/` | Compose the display modules |
 
-Empty records render visual placeholders. Update website content through the management files. Presentation code does not need group-specific copy. Publications are sorted by year, newest first; the homepage shows the two newest entries. The publications page links to `/publications.bib`, generated at build time from the same JSON records for citation import.
+Update website content through the management files. Presentation code does not need group-specific copy. The homepage uses an academic overview and section navigation; unfilled sections are omitted there, while dedicated pages retain a concise empty state. Page titles and introductions are maintained in `management/content/en/pages.json`.
+
+Publications are grouped by year, newest first, with a year index. The homepage shows the three newest entries. Each article has a publisher DOI link, an expandable BibTeX citation, and a single-entry download at `/citations/<id>.bib`. The complete collection remains available at `/publications.bib`. Citation text and all download files are generated from the same JSON records at build time through `src/lib/bibliography.ts`; no browser JavaScript is required. News is ordered by date, newest first.
 
 ## Agent maintenance
 

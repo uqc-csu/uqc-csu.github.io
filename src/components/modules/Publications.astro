@@ -1,19 +1,34 @@
 ---
 import type { Publication } from '../../lib/content';
-import Placeholder from '../ui/Placeholder.astro';
+import { formatBibtex, publicationId } from '../../lib/bibliography';
 interface Props { items: Publication[]; headingLevel?: 2 | 3 }
 const { items, headingLevel = 2 } = Astro.props;
-const entries: (Publication | null)[] = items.length ? items : [null, null];
 const Heading = headingLevel === 2 ? 'h2' : 'h3';
 ---
 
-<div class="data-list">
-  {entries.map((item) => (
-    <article class="publication-card card-border">
-      <div class="publication-card-top"><span class="publication-year">{item?.year || 'Year'}</span><span class="publication-status">{item?.journal || 'Journal'}</span></div>
-      <Heading class="publication-title">{item?.title || 'Publication title'}</Heading>
-      {item?.authors?.length ? <p class="publication-authors">{item.authors.join(', ')}</p> : <Placeholder label="Authors placeholder" lines={1} />}
-      {item?.doi ? <a class="doi" href={`https://doi.org/${item.doi}`}><span>DOI: {item.doi}</span> <span aria-hidden="true">↗</span></a> : <span class="doi doi-placeholder">DOI</span>}
-    </article>
-  ))}
-</div>
+{items.length > 0 ? (
+  <ol class="publication-list">
+    {items.map((item) => (
+      <li>
+        <article class="publication-card">
+          <Heading class="publication-title">
+            {item.doi ? <a href={`https://doi.org/${item.doi}`}>{item.title}</a> : item.title}
+          </Heading>
+          <p class="publication-authors">{item.authors.join(', ')}</p>
+          <p class="publication-meta"><cite>{item.journal}</cite><span aria-hidden="true">·</span><time datetime={String(item.year)}>{item.year}</time></p>
+          <div class="publication-actions">
+            {item.doi && <a class="resource-link doi" href={`https://doi.org/${item.doi}`} aria-label={`DOI: ${item.doi}`}>DOI <span aria-hidden="true">↗</span></a>}
+            <a class="resource-link" href={`/citations/${publicationId(item)}.bib`} download={`uqc-${publicationId(item)}.bib`} aria-label={`Download BibTeX for ${item.title}`}>BibTeX <span aria-hidden="true">↓</span></a>
+            <details class="citation-details">
+              <summary aria-label={`View citation for ${item.title}`}>Cite</summary>
+              <div class="citation-content">
+                <p class="small-label">BibTeX citation</p>
+                <pre class="citation-text" tabindex="0" aria-label={`BibTeX citation for ${item.title}`}>{formatBibtex(item)}</pre>
+              </div>
+            </details>
+          </div>
+        </article>
+      </li>
+    ))}
+  </ol>
+) : <p class="empty-state">Publications will be added here.</p>}

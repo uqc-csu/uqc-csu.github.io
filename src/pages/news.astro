@@ -2,10 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionIntro from '../components/SectionIntro.astro';
 import News from '../components/modules/News.astro';
-import { newsItems } from '../lib/content';
+import { newsItems, pageContent } from '../lib/content';
 ---
 
-<BaseLayout title="News">
-  <section class="page-intro"><SectionIntro title="News" /></section>
-  <section class="section-tight"><div class="page-shell"><News items={newsItems} /></div></section>
+<BaseLayout title={pageContent.news.title}>
+  <section class="page-intro"><SectionIntro {...pageContent.news} /></section>
+  <section class="page-content"><div class="page-shell reading-width"><News items={newsItems} /></div></section>
 </BaseLayout>

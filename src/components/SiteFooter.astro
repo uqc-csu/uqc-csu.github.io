@@ -1,10 +1,13 @@
 ---
-import { site, isEmptyTemplate } from '../lib/content';
+import { site, contact } from '../lib/content';
 ---
 
 <footer class="site-footer">
   <div class="page-shell footer-inner">
-    <p>{site.copyright || site.name || 'Group name'}</p>
-    {isEmptyTemplate && <p>Template preview</p>}
+    <p>{site.copyright || site.name || 'Research group'}</p>
+    <nav aria-label="Footer navigation">
+      {contact.website && <a href={contact.website}>X-MOL <span aria-hidden="true">↗</span></a>}
+      <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
+    </nav>
   </div>
 </footer>

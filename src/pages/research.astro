@@ -2,10 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionIntro from '../components/SectionIntro.astro';
 import Research from '../components/modules/Research.astro';
-import { researchAreas } from '../lib/content';
+import { researchAreas, pageContent } from '../lib/content';
 ---
 
-<BaseLayout title="Research">
-  <section class="page-intro"><SectionIntro title="Research" /></section>
-  <section class="section-tight"><div class="page-shell"><Research items={researchAreas} layout="rows" /></div></section>
+<BaseLayout title={pageContent.research.title}>
+  <section class="page-intro"><SectionIntro {...pageContent.research} /></section>
+  <section class="page-content"><div class="page-shell reading-width"><Research items={researchAreas} /></div></section>
 </BaseLayout>

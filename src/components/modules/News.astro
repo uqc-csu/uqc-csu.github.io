@@ -1,21 +1,23 @@
 ---
 import type { NewsItem } from '../../lib/content';
-import Placeholder from '../ui/Placeholder.astro';
 interface Props { items: NewsItem[]; headingLevel?: 2 | 3 }
 const { items, headingLevel = 2 } = Astro.props;
-const entries: (NewsItem | null)[] = items.length ? items : [null, null];
 const Heading = headingLevel === 2 ? 'h2' : 'h3';
+const dateFormat = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
 ---
 
-<div class="news-list">
-  {entries.map((item) => (
-    <article class="news-card card-border">
-      <div class="news-card-top">
-        {item?.date ? <time class="news-date" datetime={item.date}>{item.date}</time> : <span class="news-date">Date</span>}
-        <span class="news-type">{item?.category || 'Category'}</span>
-      </div>
-      <Heading class="news-title">{item?.url ? <a href={item.url}>{item.title}</a> : item?.title || 'News title'}</Heading>
-      {item?.summary ? <p>{item.summary}</p> : <Placeholder label="News summary placeholder" />}
-    </article>
-  ))}
-</div>
+{items.length > 0 ? (
+  <div class="news-list">
+    {items.map((item) => (
+      <article class="news-card">
+        <div class="news-meta">
+          <time datetime={item.date}>{dateFormat.format(new Date(`${item.date}T00:00:00Z`))}</time>
+          {item.category && <span class="news-category">{item.category}</span>}
+        </div>
+        <Heading class="news-title">{item.url ? <a href={item.url}>{item.title}</a> : item.title}</Heading>
+        <p class="news-summary">{item.summary}</p>
+        {item.url && <a class="text-link" href={item.url}>Read original <span aria-hidden="true">↗</span></a>}
+      </article>
+    ))}
+  </div>
+) : <p class="empty-state">News will be added here.</p>}

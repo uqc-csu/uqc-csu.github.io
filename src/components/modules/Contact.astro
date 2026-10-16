@@ -1,24 +1,16 @@
 ---
 import type { ContactContent } from '../../lib/content';
-import Placeholder from '../ui/Placeholder.astro';
 interface Props { content: ContactContent }
 const { content } = Astro.props;
+const hasContent = Object.values(content).some((value) => value.trim());
 ---
 
-<div class="contact-layout">
-  <section class="contact-main">
-    <h2>Contact</h2>
-    <div class="contact-fields">
-      <div><span class="field-label">Email</span>{content.email ? <a class="contact-value" href={`mailto:${content.email}`}>{content.email}</a> : <Placeholder label="Email placeholder" lines={1} />}</div>
-      <div><span class="field-label">Website</span>{content.website ? <a class="contact-value" href={content.website}>{content.website}</a> : <Placeholder label="Website placeholder" lines={1} />}</div>
-    </div>
-  </section>
-  <section class="contact-side">
-    <h2>Institution</h2>
-    <div class="contact-fields">
-      <div><span class="field-label">Institution</span>{content.institution ? <p>{content.institution}</p> : <Placeholder label="Institution placeholder" lines={1} />}</div>
-      <div><span class="field-label">Department</span>{content.department ? <p>{content.department}</p> : <Placeholder label="Department placeholder" lines={1} />}</div>
-      <div><span class="field-label">Address</span>{content.address ? <p>{content.address}</p> : <Placeholder label="Address placeholder" lines={2} />}</div>
-    </div>
-  </section>
-</div>
+{hasContent ? (
+  <dl class="contact-details">
+    {content.institution && <div><dt>Institution</dt><dd>{content.institution}</dd></div>}
+    {content.department && <div><dt>Department</dt><dd>{content.department}</dd></div>}
+    {content.address && <div><dt>Location</dt><dd>{content.address}</dd></div>}
+    {content.email && <div><dt>Email</dt><dd><a href={`mailto:${content.email}`}>{content.email}</a></dd></div>}
+    {content.website && <div><dt>Group website</dt><dd><a href={content.website}>X-MOL profile <span aria-hidden="true">↗</span></a></dd></div>}
+  </dl>
+) : <p class="empty-state">Contact information will be added here.</p>}

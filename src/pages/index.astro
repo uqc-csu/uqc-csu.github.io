@@ -8,29 +8,48 @@ import Publications from '../components/modules/Publications.astro';
 import News from '../components/modules/News.astro';
 import Contact from '../components/modules/Contact.astro';
 import { site, researchAreas, people, publications, newsItems, contact } from '../lib/content';
+
+const sections = [
+  { id: 'about', label: 'About', visible: true },
+  { id: 'research', label: 'Research', visible: researchAreas.length > 0 },
+  { id: 'news', label: 'News', visible: newsItems.length > 0 },
+  { id: 'publications', label: 'Publications', visible: publications.length > 0 },
+  { id: 'people', label: 'People', visible: people.length > 0 },
+  { id: 'contact', label: 'Contact', visible: Object.values(contact).some((value) => value.trim()) },
+].filter((section) => section.visible);
 ---
 
 <BaseLayout title="Home">
-  <Hero content={site} />
-  <ModuleSection title="Research" href="/research/" linkLabel="View research">
-    <Research items={researchAreas.slice(0, 3)} headingLevel={3} />
-  </ModuleSection>
-  <ModuleSection title="People" href="/people/" linkLabel="View people">
-    <People items={people.slice(0, 3)} headingLevel={3} />
-  </ModuleSection>
-  <section class="section">
-    <div class="page-shell updates-grid">
-      <section>
-        <div class="section-head"><h2 class="section-title">Publications</h2><a class="section-link" href="/publications/">View all</a></div>
-        <Publications items={publications.slice(0, 2)} headingLevel={3} />
-      </section>
-      <section>
-        <div class="section-head"><h2 class="section-title">News</h2><a class="section-link" href="/news/">View all</a></div>
-        <News items={newsItems.slice(0, 2)} headingLevel={3} />
-      </section>
+  <Hero content={site} affiliation={contact} topics={researchAreas} />
+  <nav class="section-navigation" aria-label="On this page">
+    <div class="page-shell">
+      <span class="small-label">On this page</span>
+      <div>{sections.map((section) => <a href={`#${section.id}`}>{section.label}</a>)}</div>
     </div>
-  </section>
-  <ModuleSection title="Contact" href="/contact/" linkLabel="View contact">
-    <Contact content={contact} />
-  </ModuleSection>
+  </nav>
+  {researchAreas.length > 0 && (
+    <ModuleSection id="research" title="Research" href="/research/" linkLabel="Our research" tone="paper">
+      <Research items={researchAreas} headingLevel={3} />
+    </ModuleSection>
+  )}
+  {newsItems.length > 0 && (
+    <ModuleSection id="news" title="Latest news" href="/news/" linkLabel="All news">
+      <News items={newsItems.slice(0, 3)} headingLevel={3} />
+    </ModuleSection>
+  )}
+  {publications.length > 0 && (
+    <ModuleSection id="publications" title="Recent publications" href="/publications/" linkLabel="All publications" tone="paper">
+      <Publications items={publications.slice(0, 3)} headingLevel={3} />
+    </ModuleSection>
+  )}
+  {people.length > 0 && (
+    <ModuleSection id="people" title="People" href="/people/" linkLabel="Our group">
+      <People items={people.slice(0, 3)} headingLevel={3} />
+    </ModuleSection>
+  )}
+  {sections.some((section) => section.id === 'contact') && (
+    <ModuleSection id="contact" title="Contact" href="/contact/" linkLabel="Contact & location">
+      <Contact content={contact} />
+    </ModuleSection>
+  )}
 </BaseLayout>

@@ -1,0 +1,22 @@
+{
+  "research": {
+    "title": "Research",
+    "description": "Three complementary directions connecting ultrafast physics, quantum optics, and control theory."
+  },
+  "publications": {
+    "title": "Publications",
+    "description": "Journal articles organized by year, with publisher links and downloadable citations."
+  },
+  "news": {
+    "title": "News",
+    "description": "Research updates from the Ultrafast Quantum Control Group."
+  },
+  "people": {
+    "title": "People",
+    "description": ""
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "School of Physics, Central South University · Changsha, China."
+  }
+}

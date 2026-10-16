@@ -1,25 +1,21 @@
 ---
 import type { ResearchArea } from '../../lib/content';
-import Placeholder from '../ui/Placeholder.astro';
-interface Props { items: ResearchArea[]; layout?: 'cards' | 'rows'; headingLevel?: 2 | 3 }
-const { items, layout = 'cards', headingLevel = 2 } = Astro.props;
-const entries: (ResearchArea | null)[] = items.length ? items : [null, null, null];
+interface Props { items: ResearchArea[]; headingLevel?: 2 | 3 }
+const { items, headingLevel = 2 } = Astro.props;
 const Heading = headingLevel === 2 ? 'h2' : 'h3';
 ---
 
-<div class={layout === 'rows' ? 'data-list' : 'research-grid'}>
-  {entries.map((item, index) => (
-    <article class:list={['card-border', layout === 'rows' ? 'data-card research-row' : 'research-card']}>
-      <span class={layout === 'rows' ? 'data-index' : 'research-number'}>{String(index + 1).padStart(2, '0')}</span>
-      <div>
-        <Heading>{item?.title || 'Research area'}</Heading>
-        {item?.summary ? <p>{item.summary}</p> : <Placeholder label="Research summary placeholder" />}
-        <div class="tag-row">
-          {item?.tags?.length ? item.tags.map((tag) => <span class="tag">{tag}</span>) : (
-            <Fragment><span class="placeholder-chip" aria-hidden="true"></span><span class="placeholder-chip" aria-hidden="true"></span></Fragment>
-          )}
+{items.length > 0 ? (
+  <div class="research-list">
+    {items.map((item, index) => (
+      <article class="research-row">
+        <span class="research-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+        <div>
+          <Heading class="research-title">{item.title}</Heading>
+          <p class="research-summary">{item.summary}</p>
+          {item.tags && item.tags.length > 0 && <ul class="topic-tags" aria-label="Topics">{item.tags.map((tag) => <li>{tag}</li>)}</ul>}
         </div>
-      </div>
-    </article>
-  ))}
-</div>
+      </article>
+    ))}
+  </div>
+) : <p class="empty-state">Research information will be added here.</p>}

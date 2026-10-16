@@ -4,12 +4,8 @@ import SiteHeader from '../components/SiteHeader.astro';
 import { site } from '../lib/content';
 import '../styles/global.css';
 
-interface Props {
-  title: string;
-  description?: string;
-}
-
-const { title, description = site.description || 'Research group website template.' } = Astro.props;
+interface Props { title: string; description?: string }
+const { title, description = site.description || 'Research group website.' } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site || Astro.url.origin);
 ---
 
@@ -17,17 +13,16 @@ const canonical = new URL(Astro.url.pathname, Astro.site || Astro.url.origin);
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonical} />
-    <title>{title} · {site.name || 'Research group template'}</title>
+    <title>{title} · {site.name || 'Research group'}</title>
   </head>
-  <body>
+  <body id="top">
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <SiteHeader />
-    <main>
-      <slot />
-    </main>
+    <main id="main-content" tabindex="-1"><slot /></main>
     <SiteFooter />
   </body>
 </html>

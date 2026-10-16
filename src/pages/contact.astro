@@ -2,10 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionIntro from '../components/SectionIntro.astro';
 import Contact from '../components/modules/Contact.astro';
-import { contact } from '../lib/content';
+import { contact, pageContent } from '../lib/content';
 ---
 
-<BaseLayout title="Contact">
-  <section class="page-intro"><SectionIntro title="Contact" /></section>
-  <section class="section-tight"><div class="page-shell"><Contact content={contact} /></div></section>
+<BaseLayout title={pageContent.contact.title}>
+  <section class="page-intro"><SectionIntro {...pageContent.contact} /></section>
+  <section class="page-content"><div class="page-shell reading-width"><Contact content={contact} /></div></section>
 </BaseLayout>

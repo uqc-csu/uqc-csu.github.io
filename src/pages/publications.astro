@@ -2,20 +2,37 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionIntro from '../components/SectionIntro.astro';
 import Publications from '../components/modules/Publications.astro';
-import { publications } from '../lib/content';
+import { publications, pageContent } from '../lib/content';
+
+const years = [...new Set(publications.map((item) => item.year))].sort((a, b) => b - a);
 ---
 
-<BaseLayout title="Publications">
-  <section class="page-intro"><SectionIntro title="Publications" /></section>
-  <section class="section-tight">
-    <div class="page-shell">
+<BaseLayout title={pageContent.publications.title}>
+  <section class="page-intro"><SectionIntro {...pageContent.publications} /></section>
+  <section class="page-content">
+    <div class="page-shell archive-layout">
       {publications.length > 0 && (
-        <div class="publication-tools">
-          <p class="muted-copy">{publications.length} journal articles</p>
-          <a class="section-link" href="/publications.bib" download="uqc-publications.bib">Download BibTeX</a>
-        </div>
+        <aside class="archive-sidebar" aria-label="Publication index">
+          <p class="small-label">Browse by year</p>
+          <nav class="year-links" aria-label="Publication years">
+            {years.map((year) => (
+              <a href={`#year-${year}`}><span>{year}</span><span class="year-count">{publications.filter((item) => item.year === year).length}</span></a>
+            ))}
+          </nav>
+          <div class="archive-download">
+            <p>{publications.length} journal articles</p>
+            <a class="text-link" href="/publications.bib" download="uqc-publications.bib">Download all BibTeX <span aria-hidden="true">↓</span></a>
+          </div>
+        </aside>
       )}
-      <Publications items={publications} />
+      <div class="archive-entries">
+        {years.length ? years.map((year) => (
+          <section class="publication-year-group" id={`year-${year}`} aria-labelledby={`year-${year}-heading`}>
+            <h2 class="year-heading" id={`year-${year}-heading`}>{year}</h2>
+            <Publications items={publications.filter((item) => item.year === year)} headingLevel={3} />
+          </section>
+        )) : <Publications items={[]} />}
+      </div>
     </div>
   </section>
 </BaseLayout>
