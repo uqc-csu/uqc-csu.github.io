@@ -6,8 +6,6 @@ export default defineConfig({
   output: 'static',
   redirects: {
     '/research/': '/#research',
-    '/news/': '/#news',
-    '/publications/': '/#publications',
     '/people/': '/#people',
     '/contact/': '/#contact',
   },

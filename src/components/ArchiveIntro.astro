@@ -1,0 +1,14 @@
+---
+interface Props { title: string; description?: string; section: string }
+const { title, description, section } = Astro.props;
+---
+
+<section class="archive-intro">
+  <div class="page-shell reading-width">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href={`/#${section}`}>Home</a><span aria-hidden="true">/</span><span aria-current="page">{title}</span>
+    </nav>
+    <h1>{title}</h1>
+    {description && <p>{description}</p>}
+  </div>
+</section>

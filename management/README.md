@@ -11,7 +11,7 @@ Agent 接手前先读仓库根目录的 [AGENTS.md](../AGENTS.md)。本仓库当
 | 内容 | 文件 | 字段 |
 | --- | --- | --- |
 | 全站与首页 | `content/en/site.json` | `name`、`tagline`、`description`、`introduction`、`image`、`imageAlt`、`copyright` |
-| 单页栏目标题与说明 | `content/en/sections.json` | `research`、`publications`、`news`、`people`、`contact` 各包含 `title`、`description` |
+| 栏目标题、说明与首页条数 | `content/en/sections.json` | 各栏目包含 `title`、`description`；`publications`、`news` 可设置正整数 `previewLimit`，默认 3 |
 | 研究方向 | `content/en/research.json` | 数组；每条包含 `title`、`summary`，可选 `tags` |
 | 成员 | `content/en/people.json` | 数组；每条包含 `name`、`role`、`bio`，可选 `image`、`homepage` |
 | 论文 | `content/en/publications.json` | 数组；每条包含 `title`、`authors`、`journal`、`year`，可选 `doi` |
@@ -20,7 +20,7 @@ Agent 接手前先读仓库根目录的 [AGENTS.md](../AGENTS.md)。本仓库当
 
 `tags` 和 `authors` 是字符串数组；`year` 是数字；`date` 使用 `YYYY-MM-DD`；`doi` 填写 DOI 标识符。图片放入项目的 `public/images/`，内容文件使用 `/images/文件名`，同时填写图片说明。
 
-所有栏目集中在网站首页，导航使用 `#research`、`#news`、`#publications`、`#people` 和 `#contact` 页内定位。没有内容时保留空字符串或空数组，对应栏目显示简洁空状态；未填写的图片和联系字段不显示。不要用虚构的姓名、论文、日期或联系方式填充模板，公开内容使用英文。
+首页展示所有栏目的概览，顶部导航使用 `/#research`、`/#news`、`/#publications`、`/#people` 和 `/#contact` 定位到首页对应位置。论文和新闻通过“查看全部”进入 `/publications/` 和 `/news/` 完整列表；其余栏目保留在首页。没有内容时保留空字符串或空数组，对应栏目显示简洁空状态；未填写的图片和联系字段不显示。不要用虚构的姓名、论文、日期或联系方式填充模板，公开内容使用英文。
 
 ## 公开介绍来源
 
@@ -32,17 +32,17 @@ Agent 接手前先读仓库根目录的 [AGENTS.md](../AGENTS.md)。本仓库当
 
 2026-10-15 从本机 Zotero 的 **UQC (Ultrafast Quantum Control) > Published** 分类导入 31 篇期刊论文，并逐一用 [Crossref DOI 元数据](https://www.crossref.org/documentation/retrieve-metadata/rest-api)核对题目、作者顺序、DOI 和年份。同分类中的 1 条预印本未归入已发表期刊论文。
 
-论文只需维护 `content/en/publications.json`。完整列表在首页 `#publications` 按年份分组，并提供年份索引；同年条目沿用 JSON 中的顺序。本次同年条目已按 Zotero 中的发表日期倒序排列。首页展示全部论文、新闻和成员条目，不再截取前三条。新闻按 `date` 倒序排列。
+论文只需维护 `content/en/publications.json`。首页默认显示最新 3 篇；完整列表在 `/publications/` 按年份分组，提供年份索引。同年条目沿用 JSON 中的顺序，本次已按 Zotero 中的发表日期倒序排列。新闻按 `date` 倒序排列，首页默认最多显示 3 条，完整列表在 `/news/`。两项首页条数分别由 `content/en/sections.json` 的 `publications.previewLimit`、`news.previewLimit` 控制，使用正整数。调整首页展示条数不会删除完整数据。
 
 每篇论文提供 **DOI**、**BibTeX** 下载和 **Cite** 展开按钮。单篇文件 `/citations/<id>.bib` 与合集 `/publications.bib` 都通过 `src/lib/bibliography.ts` 从同一份数据在构建时生成，可导入 Zotero 等文献管理软件；修改 JSON 即会同步更新所有引用入口，不手工维护第二份引用清单。`<id>` 由 DOI 生成，无 DOI 时使用年份和题目；不要复用他人的 DOI。引用展开使用浏览器原生控件，不需要 JavaScript。当前只发布书目信息和 DOI 链接，不提供论文全文。
 
 ## 展示模块
 
-布局与样式位于项目的 `src/components/modules/` 和 `src/styles/global.css`。内容通过 `src/lib/content.ts` 读取，页面在 `src/pages/` 中组合各模块。网站仅以 `src/pages/index.astro` 组合所有内容栏目，`PublicationArchive.astro` 负责论文年份索引与完整列表；不要在组件中新增课题组事实性介绍。公共页面没有编辑按钮、登录功能或管理入口。
+布局与样式位于项目的 `src/components/modules/` 和 `src/styles/global.css`。内容通过 `src/lib/content.ts` 读取，页面在 `src/pages/` 中组合各模块。首页由 `src/pages/index.astro` 组合各栏目概览，另保留论文和新闻两个完整列表页；`PublicationArchive.astro` 负责论文年份索引与完整列表，首页与列表页共用原始内容数据；不要在组件中新增课题组事实性介绍。公共页面没有编辑按钮、登录功能或管理入口。
 
 内容更新通常只需要修改 `management/content/en/`；改变布局时再修改展示模块。新增语言时使用独立内容目录和页面路由，不在英文内容字段中混入中文。
 
-旧的 `/research/`、`/news/`、`/publications/`、`/people/` 和 `/contact/` 链接由 `astro.config.mjs` 生成兼容跳转页，统一跳至首页对应栏目；站内不再链接这些旧地址。引用文件仍保留独立下载地址。不要为常规内容更新重新建立独立栏目页。
+旧的 `/research/`、`/people/` 和 `/contact/` 链接由 `astro.config.mjs` 生成兼容跳转页，跳至首页对应栏目。`/publications/` 和 `/news/` 是正式完整列表页，站内通过“查看全部”进入；无需为其他栏目再创建独立页面。引用文件继续使用独立下载地址。
 
 ## 更新与发布
 

@@ -13,9 +13,9 @@ An English-only website for the **Ultrafast Quantum Control Group (UQC), School 
 | Content adapter | `src/lib/content.ts` | Imports and types for management records |
 | Pages | `src/pages/` | Compose the display modules |
 
-All group sections are presented on one page at the site root: overview, research, news, publications, people, and contact. Navigation links jump to sections on the same page. Unfilled sections show a concise empty state; personal information remains unfilled. Update content through the management files; section titles and introductions are maintained in `management/content/en/sections.json`. Presentation code does not need group-specific copy.
+The homepage provides an overview of every group section: introduction, research, recent news, recent publications, people, and contact. The primary navigation points to homepage sections. Only publications and news have separate full-list pages, reached through the homepage’s “View all” links. Unfilled sections show a concise empty state; personal information remains unfilled. Update content through the management files; section titles, descriptions, and homepage preview limits are maintained in `management/content/en/sections.json`. Presentation code does not need group-specific copy.
 
-The single page includes the complete publication list, grouped by year, newest first, with a year index. All news and member records are rendered without a homepage item limit. Each article has a publisher DOI link, an expandable BibTeX citation, and a single-entry download at `/citations/<id>.bib`. The complete collection remains available at `/publications.bib`. Citation text and all download files are generated from the same JSON records at build time through `src/lib/bibliography.ts`; no browser JavaScript is required. News is ordered by date, newest first.
+The homepage shows the three newest publications and up to three news items by default. Edit `previewLimit` in the corresponding section’s management record to change these limits. The complete publication list is at `/publications/`, grouped by year with a year index; all news is at `/news/`. Both full-list pages use the same source records as the homepage. Each article has a publisher DOI link, an expandable BibTeX citation, and a single-entry download at `/citations/<id>.bib`. The complete collection remains available at `/publications.bib`. Citation text and all download files are generated from the same JSON records at build time through `src/lib/bibliography.ts`; no browser JavaScript is required. News is ordered by date, newest first.
 
 ## Agent maintenance
 
@@ -39,7 +39,7 @@ npm run build
 npm run preview
 ```
 
-Static production files are generated in `dist/`, including the public BibTeX citation files. The old `/research/`, `/news/`, `/publications/`, `/people/`, and `/contact/` addresses are compatibility redirects to homepage sections, configured in `astro.config.mjs`; they no longer hold separate content. On GitHub Pages these redirects use static HTML meta refresh. The management guide and JSON files are outside `public/`; they are not published as standalone pages or administration endpoints.
+Static production files are generated in `dist/`, including the public BibTeX citation files. Only `/publications/` and `/news/` are full-list content pages. The old `/research/`, `/people/`, and `/contact/` addresses are compatibility redirects to homepage sections, configured in `astro.config.mjs`. On GitHub Pages these redirects use static HTML meta refresh. The management guide and JSON files are outside `public/`; they are not published as standalone pages or administration endpoints.
 
 ## Publishing
 

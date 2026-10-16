@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArchiveIntro from '../components/ArchiveIntro.astro';
+import PublicationArchive from '../components/modules/PublicationArchive.astro';
+import { sectionContent, publications } from '../lib/content';
+---
+
+<BaseLayout title={sectionContent.publications.title}>
+  <ArchiveIntro {...sectionContent.publications} section="publications" />
+  <section class="archive-content">
+    <div class="page-shell reading-width"><PublicationArchive items={publications} /></div>
+  </section>
+</BaseLayout>

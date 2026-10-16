@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArchiveIntro from '../components/ArchiveIntro.astro';
+import News from '../components/modules/News.astro';
+import { sectionContent, newsItems } from '../lib/content';
+---
+
+<BaseLayout title={sectionContent.news.title}>
+  <ArchiveIntro {...sectionContent.news} section="news" />
+  <section class="archive-content">
+    <div class="page-shell reading-width"><News items={newsItems} /></div>
+  </section>
+</BaseLayout>

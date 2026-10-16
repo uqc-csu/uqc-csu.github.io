@@ -20,10 +20,10 @@ const years = [...new Set(items.map((item) => item.year))].sort((a, b) => b - a)
     <div class="archive-entries">
       {years.map((year) => (
         <section class="publication-year-group" id={`year-${year}`} aria-labelledby={`year-${year}-heading`}>
-          <h3 class="year-heading" id={`year-${year}-heading`}>{year}</h3>
-          <Publications items={items.filter((item) => item.year === year)} headingLevel={4} />
+          <h2 class="year-heading" id={`year-${year}-heading`}>{year}</h2>
+          <Publications items={items.filter((item) => item.year === year)} headingLevel={3} />
         </section>
       ))}
     </div>
   </div>
-) : <Publications items={[]} headingLevel={3} />}
+) : <Publications items={[]} headingLevel={2} />}

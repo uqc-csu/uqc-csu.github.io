@@ -5,11 +5,13 @@
   },
   "publications": {
     "title": "Publications",
-    "description": "Journal articles organized by year, with publisher links and downloadable citations."
+    "description": "Research papers and citations from the Ultrafast Quantum Control Group.",
+    "previewLimit": 3
   },
   "news": {
     "title": "News",
-    "description": "Research updates from the Ultrafast Quantum Control Group."
+    "description": "Research updates from the Ultrafast Quantum Control Group.",
+    "previewLimit": 3
   },
   "people": {
     "title": "People",

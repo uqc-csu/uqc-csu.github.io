@@ -4,7 +4,7 @@ import ModuleSection from '../components/ModuleSection.astro';
 import Hero from '../components/modules/Hero.astro';
 import Research from '../components/modules/Research.astro';
 import People from '../components/modules/People.astro';
-import PublicationArchive from '../components/modules/PublicationArchive.astro';
+import Publications from '../components/modules/Publications.astro';
 import News from '../components/modules/News.astro';
 import Contact from '../components/modules/Contact.astro';
 import { site, sectionContent, researchAreas, people, publications, newsItems, contact } from '../lib/content';
@@ -16,10 +16,12 @@ import { site, sectionContent, researchAreas, people, publications, newsItems, c
     <Research items={researchAreas} headingLevel={3} />
   </ModuleSection>
   <ModuleSection id="news" {...sectionContent.news}>
-    <News items={newsItems} headingLevel={3} />
+    <News items={newsItems.slice(0, sectionContent.news.previewLimit ?? 3)} headingLevel={3} />
+    {newsItems.length > 0 && <div class="section-more"><a class="text-link" href="/news/">View all news <span aria-hidden="true">→</span></a></div>}
   </ModuleSection>
   <ModuleSection id="publications" {...sectionContent.publications} tone="paper">
-    <PublicationArchive items={publications} />
+    <Publications items={publications.slice(0, sectionContent.publications.previewLimit ?? 3)} headingLevel={3} />
+    {publications.length > 0 && <div class="section-more"><a class="text-link" href="/publications/">View all {publications.length} publications <span aria-hidden="true">→</span></a></div>}
   </ModuleSection>
   <ModuleSection id="people" {...sectionContent.people}>
     <People items={people} headingLevel={3} />

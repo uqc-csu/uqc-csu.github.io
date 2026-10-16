@@ -15,7 +15,7 @@ export interface SiteContent {
   imageAlt: string;
   copyright: string;
 }
-export interface SectionIntro { title: string; description: string }
+export interface SectionIntro { title: string; description: string; previewLimit?: number }
 export const sectionContent: Record<'research' | 'publications' | 'news' | 'people' | 'contact', SectionIntro> = sectionData;
 
 export interface ResearchArea { title: string; summary: string; tags?: string[] }

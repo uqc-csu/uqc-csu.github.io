@@ -73,6 +73,13 @@ section[id] { scroll-margin-top: 16px; }
 .section-heading h2 { max-width: 11ch; margin: 0 0 17px; font-size: 2rem; font-weight: 550; letter-spacing: -0.035em; }
 .section-description { max-width: 230px; margin-bottom: 0; color: var(--muted); font-size: 0.86rem; line-height: 1.8; }
 .section-content { min-width: 0; }
+.section-more { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--line); }
+.reading-width { max-width: 850px; }
+.archive-intro { padding-block: 42px; border-bottom: 1px solid var(--line); background: var(--paper); }
+.breadcrumb { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 22px; color: var(--muted); font-size: 0.8rem; }
+.archive-intro h1 { margin-bottom: 14px; font-size: clamp(2.2rem, 4vw, 3rem); font-weight: 570; letter-spacing: -0.04em; }
+.archive-intro p { margin-bottom: 0; color: var(--muted); line-height: 1.8; }
+.archive-content { padding-block: 45px 70px; }
 .empty-state { padding: 28px; border-left: 3px solid var(--line); color: var(--muted); background: var(--paper); }
 
 .research-list { display: grid; }
