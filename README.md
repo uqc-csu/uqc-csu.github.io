@@ -1,6 +1,6 @@
-# Research group website template
+# UQC research group website
 
-An English-only website for the **Ultrafast Quantum Control Group (UQC), School of Physics, Central South University**, at [en.uqc-csu.com](https://en.uqc-csu.com/). It uses Astro, Tailwind CSS, and GitHub Pages. The group overview, three research areas, two research news items, and institutional information are adapted from the public UQC X-MOL pages. Publications contain 31 journal articles imported from the local Zotero collection **UQC (Ultrafast Quantum Control) > Published**, with titles, authors, journals, years, and DOI links. Member profiles, personal contact details, and group images remain unfilled.
+An English-only website for the **Ultrafast Quantum Control Group (UQC), School of Physics, Central South University**, at [en.uqc-csu.com](https://en.uqc-csu.com/). It uses Astro, Tailwind CSS, and GitHub Pages. The group overview, three research areas, two research news items, and institutional information are adapted from the public UQC X-MOL pages. Publications are maintained as structured citations, initially imported from the local Zotero collection **UQC (Ultrafast Quantum Control) > Published**, with titles, authors, journals, years, and DOI links. Member profiles, personal contact details, and group images remain unfilled.
 
 ## Display and management
 
@@ -14,6 +14,16 @@ An English-only website for the **Ultrafast Quantum Control Group (UQC), School 
 | Pages | `src/pages/` | Compose the display modules |
 
 Empty records render visual placeholders. Update website content through the management files. Presentation code does not need group-specific copy. Publications are sorted by year, newest first; the homepage shows the two newest entries. The publications page links to `/publications.bib`, generated at build time from the same JSON records for citation import.
+
+## Agent maintenance
+
+Agents should start with [AGENTS.md](AGENTS.md), then read the [content guide](management/README.md) and [source notes](management/sources.md). These documents cover content locations, source verification, personal-information boundaries, validation, publishing authority, and recovery. They do not create scheduled jobs or grant account access.
+
+## Visibility and public content
+
+This repository is **public**, confirmed through the GitHub API on 2026-10-16. Maintenance documents and content JSON are publicly visible in the repository even though they are not served as standalone website pages. Keep internal research material and credentials outside the repository.
+
+The `private: true` flag in `package.json` prevents accidental npm package publication; it does not make the GitHub repository private. Under GitHub Free, [making this repository private unpublishes its Pages site](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility#making-a-repository-private). A different visibility or hosting arrangement requires an explicit user decision.
 
 ## Local development
 
