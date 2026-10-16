@@ -1,13 +1,13 @@
 ---
-interface Props { id: string; title: string; href?: string; linkLabel?: string; tone?: 'paper' | 'white' }
-const { id, title, href, linkLabel = 'View all', tone = 'white' } = Astro.props;
+interface Props { id: string; title: string; description?: string; tone?: 'paper' | 'white' }
+const { id, title, description, tone = 'white' } = Astro.props;
 ---
 
 <section id={id} class:list={['section', `section-${tone}`]} aria-labelledby={`${id}-heading`}>
   <div class="page-shell section-layout">
     <div class="section-heading">
       <h2 id={`${id}-heading`}>{title}</h2>
-      {href && <a class="text-link" href={href}>{linkLabel} <span aria-hidden="true">→</span></a>}
+      {description && <p class="section-description">{description}</p>}
     </div>
     <div class="section-content"><slot /></div>
   </div>

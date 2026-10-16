@@ -22,7 +22,7 @@
 | 任务 | 修改位置 |
 | --- | --- |
 | 组名、首页介绍、网站描述 | `management/content/en/site.json` |
-| 栏目页标题与说明 | `management/content/en/pages.json` |
+| 单页栏目标题与说明 | `management/content/en/sections.json` |
 | 研究方向 | `management/content/en/research.json` |
 | 成员 | `management/content/en/people.json`，当前留空 |
 | 论文引用 | `management/content/en/publications.json` |
@@ -32,7 +32,7 @@
 | 字段类型、读取与排序 | `src/lib/content.ts` |
 | 展示模块、页面和样式 | `src/components/`、`src/pages/`、`src/styles/global.css` |
 
-常规内容更新优先修改 JSON 和必要的来源记录，不把课题组文案写进组件。保留既有有效内容，按 DOI、原文链接等去重。字段变更需要同步内容类型、展示模块和维护说明。空数据在独立栏目页显示简洁空状态，首页隐藏无条目的栏目，不用虚构内容填满页面；未填写的图片与联系字段不显示。
+常规内容更新优先修改 JSON 和必要的来源记录，不把课题组文案写进组件。保留既有有效内容，按 DOI、原文链接等去重。字段变更需要同步内容类型、展示模块和维护说明。所有栏目集中在首页，用页内锚点导航，完整展示论文与新闻；空数据在对应栏目显示简洁空状态，不用虚构内容填满页面；未填写的图片与联系字段不显示。
 
 ## 来源、论文与个人信息
 
@@ -42,9 +42,11 @@
 - Zotero 可用时优先使用其已有只读接口或用户提供的导出；只读取本次需要的书目字段，不修改文献库、不复制整库或批量上传附件。无法确认的条目先向用户说明，不编造补全。
 - 当前不新增成员简介、履历、头像、个人邮箱、电话或个人办公地址；即使 X-MOL 已公开，也不自动搬运。学校与城市等机构信息可以按已授权范围维护。已有论文作者姓名继续作为书目内容保留；后续改变个人资料范围须有用户明确指示。
 - 只使用来源和授权明确的图片、全文或 PDF。获得一份 Zotero 附件不等于有权公开转载；需要逐篇核对版本、许可和禁运期。优先保留 DOI 或已确认的公开全文链接，记录所用来源和许可依据；不擅自给第三方资料授予开源许可。
-- 论文按年分组，首页显示最新三篇。`src/lib/bibliography.ts` 从同一份论文数据生成页面的 Cite 展开内容、单篇 `/citations/<id>.bib` 和合集 `/publications.bib`；不手动维护第二份清单，不编辑 `dist/` 来更新引用。
+- 论文在首页 `#publications` 按年分组并完整展示，不截断为精选或最近三篇。`src/lib/bibliography.ts` 从同一份论文数据生成页面的 Cite 展开内容、单篇 `/citations/<id>.bib` 和合集 `/publications.bib`；不手动维护第二份清单，不编辑 `dist/` 来更新引用。
 
 ## 实现约束
+
+- 保持单页内容架构：所有栏目在 `src/pages/index.astro`，导航使用 `#about`、`#research`、`#news`、`#publications`、`#people`、`#contact`。旧栏目路径仅保留静态跳转兼容，不重新建立独立内容页；引用下载文件仍可使用独立路径。
 
 - 保持 Astro SSG、低 JavaScript 和响应式布局；字体、样式、图片优先本地托管。不得为普通内容维护引入数据库、登录后台、外部字体 CDN 或复杂 CMS。
 - 使用现有依赖和锁文件。仅在任务确实需要时调整依赖；不为普通文案或 Markdown 修改新增测试框架、校验器、Git hooks 或工具脚本。

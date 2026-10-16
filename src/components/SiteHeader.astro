@@ -1,32 +1,16 @@
 ---
 import { navItems } from '../lib/navigation';
 import { site, contact } from '../lib/content';
-
-const currentPath = Astro.url.pathname;
-const isActive = (href: string) => href === '/' ? currentPath === '/' : currentPath.startsWith(href);
 ---
 
 <header class="site-header">
   <div class="page-shell header-inner">
-    <a class="brand" href="/" aria-label={`${site.name || 'Research group'} home`}>
+    <a class="brand" href="#about" aria-label={`${site.name || 'Research group'} home`}>
       <span class="brand-name">{site.name || 'Research group'}</span>
       {contact.institution && <span class="brand-affiliation">{contact.institution}</span>}
     </a>
-    <nav class="desktop-nav" aria-label="Primary navigation">
-      {navItems.map((item) => (
-        <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
-      ))}
+    <nav class="site-nav" aria-label="Primary navigation">
+      {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
     </nav>
-    <details class="mobile-menu">
-      <summary>
-        <span>Menu</span>
-        <svg viewBox="0 0 20 20" width="18" height="18" fill="none" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.5" /></svg>
-      </summary>
-      <nav class="mobile-nav" aria-label="Mobile navigation">
-        {navItems.map((item) => (
-          <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
-        ))}
-      </nav>
-    </details>
   </div>
 </header>

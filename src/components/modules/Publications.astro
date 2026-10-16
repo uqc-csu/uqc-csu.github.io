@@ -1,9 +1,9 @@
 ---
 import type { Publication } from '../../lib/content';
 import { formatBibtex, publicationId } from '../../lib/bibliography';
-interface Props { items: Publication[]; headingLevel?: 2 | 3 }
+interface Props { items: Publication[]; headingLevel?: 2 | 3 | 4 }
 const { items, headingLevel = 2 } = Astro.props;
-const Heading = headingLevel === 2 ? 'h2' : 'h3';
+const Heading = headingLevel === 2 ? 'h2' : headingLevel === 3 ? 'h3' : 'h4';
 ---
 
 {items.length > 0 ? (

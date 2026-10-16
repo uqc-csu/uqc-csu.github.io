@@ -13,9 +13,9 @@ An English-only website for the **Ultrafast Quantum Control Group (UQC), School 
 | Content adapter | `src/lib/content.ts` | Imports and types for management records |
 | Pages | `src/pages/` | Compose the display modules |
 
-Update website content through the management files. Presentation code does not need group-specific copy. The homepage uses an academic overview and section navigation; unfilled sections are omitted there, while dedicated pages retain a concise empty state. Page titles and introductions are maintained in `management/content/en/pages.json`.
+All group sections are presented on one page at the site root: overview, research, news, publications, people, and contact. Navigation links jump to sections on the same page. Unfilled sections show a concise empty state; personal information remains unfilled. Update content through the management files; section titles and introductions are maintained in `management/content/en/sections.json`. Presentation code does not need group-specific copy.
 
-Publications are grouped by year, newest first, with a year index. The homepage shows the three newest entries. Each article has a publisher DOI link, an expandable BibTeX citation, and a single-entry download at `/citations/<id>.bib`. The complete collection remains available at `/publications.bib`. Citation text and all download files are generated from the same JSON records at build time through `src/lib/bibliography.ts`; no browser JavaScript is required. News is ordered by date, newest first.
+The single page includes the complete publication list, grouped by year, newest first, with a year index. All news and member records are rendered without a homepage item limit. Each article has a publisher DOI link, an expandable BibTeX citation, and a single-entry download at `/citations/<id>.bib`. The complete collection remains available at `/publications.bib`. Citation text and all download files are generated from the same JSON records at build time through `src/lib/bibliography.ts`; no browser JavaScript is required. News is ordered by date, newest first.
 
 ## Agent maintenance
 
@@ -39,7 +39,7 @@ npm run build
 npm run preview
 ```
 
-Static production files are generated in `dist/`, including the public BibTeX citation file. The management guide and JSON files are outside `public/`; they are not published as standalone pages or administration endpoints.
+Static production files are generated in `dist/`, including the public BibTeX citation files. The old `/research/`, `/news/`, `/publications/`, `/people/`, and `/contact/` addresses are compatibility redirects to homepage sections, configured in `astro.config.mjs`; they no longer hold separate content. On GitHub Pages these redirects use static HTML meta refresh. The management guide and JSON files are outside `public/`; they are not published as standalone pages or administration endpoints.
 
 ## Publishing
 

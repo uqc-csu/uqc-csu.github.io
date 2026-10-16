@@ -1,5 +1,5 @@
 import siteData from '../../management/content/en/site.json';
-import pageData from '../../management/content/en/pages.json';
+import sectionData from '../../management/content/en/sections.json';
 import researchData from '../../management/content/en/research.json';
 import peopleData from '../../management/content/en/people.json';
 import publicationData from '../../management/content/en/publications.json';
@@ -15,8 +15,8 @@ export interface SiteContent {
   imageAlt: string;
   copyright: string;
 }
-export interface PageIntro { title: string; description: string }
-export const pageContent: Record<'research' | 'publications' | 'news' | 'people' | 'contact', PageIntro> = pageData;
+export interface SectionIntro { title: string; description: string }
+export const sectionContent: Record<'research' | 'publications' | 'news' | 'people' | 'contact', SectionIntro> = sectionData;
 
 export interface ResearchArea { title: string; summary: string; tags?: string[] }
 export interface Person { name: string; role: string; bio: string; image?: string; homepage?: string }

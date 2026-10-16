@@ -4,52 +4,27 @@ import ModuleSection from '../components/ModuleSection.astro';
 import Hero from '../components/modules/Hero.astro';
 import Research from '../components/modules/Research.astro';
 import People from '../components/modules/People.astro';
-import Publications from '../components/modules/Publications.astro';
+import PublicationArchive from '../components/modules/PublicationArchive.astro';
 import News from '../components/modules/News.astro';
 import Contact from '../components/modules/Contact.astro';
-import { site, researchAreas, people, publications, newsItems, contact } from '../lib/content';
-
-const sections = [
-  { id: 'about', label: 'About', visible: true },
-  { id: 'research', label: 'Research', visible: researchAreas.length > 0 },
-  { id: 'news', label: 'News', visible: newsItems.length > 0 },
-  { id: 'publications', label: 'Publications', visible: publications.length > 0 },
-  { id: 'people', label: 'People', visible: people.length > 0 },
-  { id: 'contact', label: 'Contact', visible: Object.values(contact).some((value) => value.trim()) },
-].filter((section) => section.visible);
+import { site, sectionContent, researchAreas, people, publications, newsItems, contact } from '../lib/content';
 ---
 
 <BaseLayout title="Home">
   <Hero content={site} affiliation={contact} topics={researchAreas} />
-  <nav class="section-navigation" aria-label="On this page">
-    <div class="page-shell">
-      <span class="small-label">On this page</span>
-      <div>{sections.map((section) => <a href={`#${section.id}`}>{section.label}</a>)}</div>
-    </div>
-  </nav>
-  {researchAreas.length > 0 && (
-    <ModuleSection id="research" title="Research" href="/research/" linkLabel="Our research" tone="paper">
-      <Research items={researchAreas} headingLevel={3} />
-    </ModuleSection>
-  )}
-  {newsItems.length > 0 && (
-    <ModuleSection id="news" title="Latest news" href="/news/" linkLabel="All news">
-      <News items={newsItems.slice(0, 3)} headingLevel={3} />
-    </ModuleSection>
-  )}
-  {publications.length > 0 && (
-    <ModuleSection id="publications" title="Recent publications" href="/publications/" linkLabel="All publications" tone="paper">
-      <Publications items={publications.slice(0, 3)} headingLevel={3} />
-    </ModuleSection>
-  )}
-  {people.length > 0 && (
-    <ModuleSection id="people" title="People" href="/people/" linkLabel="Our group">
-      <People items={people.slice(0, 3)} headingLevel={3} />
-    </ModuleSection>
-  )}
-  {sections.some((section) => section.id === 'contact') && (
-    <ModuleSection id="contact" title="Contact" href="/contact/" linkLabel="Contact & location">
-      <Contact content={contact} />
-    </ModuleSection>
-  )}
+  <ModuleSection id="research" {...sectionContent.research} tone="paper">
+    <Research items={researchAreas} headingLevel={3} />
+  </ModuleSection>
+  <ModuleSection id="news" {...sectionContent.news}>
+    <News items={newsItems} headingLevel={3} />
+  </ModuleSection>
+  <ModuleSection id="publications" {...sectionContent.publications} tone="paper">
+    <PublicationArchive items={publications} />
+  </ModuleSection>
+  <ModuleSection id="people" {...sectionContent.people}>
+    <People items={people} headingLevel={3} />
+  </ModuleSection>
+  <ModuleSection id="contact" {...sectionContent.contact} tone="paper">
+    <Contact content={contact} />
+  </ModuleSection>
 </BaseLayout>
